@@ -55,7 +55,6 @@
 
   --clr-soft-red: hsl(0, 97%, 63%);
   --clr-greyish-blue: hsl(223, 23%, 46%);
-  --clr-semi-dark-blue: hsl(223, 36%, 14%);
 
   /* Text */
   --clr-white-txt: hsla(0, 0%, 100%, 1);
@@ -64,6 +63,7 @@
 
   /* Background  */
   --clr-dark-blue-bg: hsl(223, 30%, 9%);
+  --clr-semi-dark-blue-bg: hsl(223, 36%, 14%);
 
   /* Others */
 }
@@ -87,6 +87,14 @@ ul {
   list-style: none;
 }
 
+.testing {
+  background-color: green;
+}
+
 /* ================== */
 /* Typography */
 /* ================== */
+
+.activeIcon > path {
+  fill: red;
+}
