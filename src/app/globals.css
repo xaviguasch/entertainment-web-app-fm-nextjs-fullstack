@@ -95,6 +95,42 @@ ul {
 /* Typography */
 /* ================== */
 
-.activeIcon > path {
-  fill: red;
+/* ================== */
+/* Links */
+/* ================== */
+
+/* ================== */
+/* Buttons & inputs */
+/* ================== */
+
+/* ================== */
+/* Utility styles */
+/* ================== */
+
+.icon > path {
+  /* You gotta give him a fill color inside CSS so the transition works */
+  fill: var(--clr-greyish-blue);
+  transition: fill 250ms;
 }
+
+.icon {
+  transform: scale(0.9);
+  transform: translateY(10%);
+}
+
+.icon:hover > path,
+.icon:active > path {
+  fill: var(--clr-soft-red);
+}
+
+.activeIcon > path {
+  fill: var(--clr-white);
+}
+
+/* ================== */
+/* SECTIONS */
+/* ================== */
+
+/* ================== */
+/* MEDIA QUERIES */
+/* ================== */
