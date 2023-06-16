@@ -1,10 +1,16 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import classes from './Search.module.css'
+
+import { EntAppContext } from '../context/EntAppProvider'
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState('')
+
+  const theme = useContext(EntAppContext)
+
+  console.log(theme)
 
   function searchInputHandler(e) {
     setSearchInput(e.target.value)

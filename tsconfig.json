@@ -28,7 +28,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "lib/tmdb.js"
+    "lib/tmdb.js",
+    "src/app/context/EntAppProvider.tsx"
   ],
   "exclude": ["node_modules"]
 }
