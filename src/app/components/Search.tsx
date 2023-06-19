@@ -8,9 +8,9 @@ import { EntAppContext } from '../context/EntAppProvider'
 const Search = () => {
   const [searchInput, setSearchInput] = useState('')
 
-  const theme = useContext(EntAppContext)
+  // const theme = useContext(EntAppContext)
 
-  console.log(theme)
+  // console.log(theme)
 
   function searchInputHandler(e) {
     setSearchInput(e.target.value)

@@ -1,19 +1,16 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 
-import { searchAPI } from '../../../lib/tmdb'
+import { getTrendingAll } from '../../../lib/tmdb'
 
 export const EntAppContext = createContext()
 
 function EntAppProvider({ children }) {
-  const [cartItems, setCartItems] = useState(['la', 'li'])
   const [data, setData] = useState([])
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetchedData = await searchAPI()
-        console.log('hola')
-        console.log(fetchedData)
+        const fetchedData = await getTrendingAll()
         setData(fetchedData)
       } catch (error) {
         console.log(error)
@@ -24,8 +21,6 @@ function EntAppProvider({ children }) {
   }, [])
 
   let entAppState = {
-    cartItems,
-    setCartItems,
     data,
   }
 
