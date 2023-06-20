@@ -8,6 +8,8 @@ const fetchData = async (url: string) => {
   }
   const result = await response.json()
 
+  console.log(result)
+
   return result
 }
 

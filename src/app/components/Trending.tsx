@@ -2,25 +2,41 @@
 
 import React, { useState, useContext, useEffect } from 'react'
 import classes from './Trending.module.css'
-import { EntAppContext } from '../context/EntAppProvider'
 import TrendingItem from './TrendingItem'
 
+import useSWR from 'swr'
+
+const BASE_URL = 'https://api.themoviedb.org/3'
+const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
+
+const url = `${BASE_URL}/trending/all/day?api_key=${TMDB_API_KEY}`
+
+async function fetcher(endpoint: string) {
+  const response = await fetch(endpoint)
+  const json = await response.json()
+
+  console.log(json)
+
+  return json
+}
+
 const Trending = () => {
-  const [trendingItems, setTrendingItems] = useState([])
+  const { data, error, isLoading } = useSWR(url, fetcher)
 
-  const trendingContext = useContext(EntAppContext)
+  console.log(data, error)
 
-  useEffect(() => {
-    const getData = async () => {
-      const getTrendingContext = await trendingContext
+  if (error) return <div>failed to load</div>
 
-      setTrendingItems(getTrendingContext.data.results.slice(0, 5))
-    }
+  if (isLoading) return <div>loading...</div>
 
-    getData()
-  }, [trendingContext])
-
-  return <div className={classes.Trending}></div>
+  return (
+    <div className={classes.Trending}>
+      <h2>Trending</h2>
+      {data.results?.map((movie) => {
+        return <h3 key={movie.id}>{movie.original_title}</h3>
+      })}
+    </div>
+  )
 }
 
 export default Trending
