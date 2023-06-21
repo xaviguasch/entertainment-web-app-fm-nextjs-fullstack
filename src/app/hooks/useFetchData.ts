@@ -32,7 +32,9 @@ const useFetchData = () => {
       try {
         const fetchedData = await getTrendingAll()
 
-        setData(fetchedData.slice(0, 20))
+        console.log(fetchedData)
+
+        setData(fetchedData)
       } catch (error) {
         console.log(error)
       } finally {
