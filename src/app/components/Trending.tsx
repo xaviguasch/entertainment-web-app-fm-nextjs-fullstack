@@ -12,9 +12,9 @@ const Trending = () => {
   return (
     <div className={classes.Trending}>
       <h2>Trending</h2>
-      {data.results?.map((movie) => {
-        return <h3 key={movie.id}>{movie.original_title}</h3>
-      })}
+      {data?.map((item: object) => (
+        <TrendingItem key={item.id} data={...item} />
+      ))}
     </div>
   )
 }
