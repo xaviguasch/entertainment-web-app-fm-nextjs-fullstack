@@ -12,9 +12,9 @@ const Trending = () => {
   return (
     <div className={classes.Trending}>
       <h2>Trending</h2>
-      {data?.map((item: object) => (
-        <TrendingItem key={item.id} data={...item} />
-      ))}
+      {isLoading && <h2>Loading...</h2>}
+      {data.length > 0 &&
+        data.map((item: object) => <TrendingItem key={item.id} data={...item} />)}
     </div>
   )
 }

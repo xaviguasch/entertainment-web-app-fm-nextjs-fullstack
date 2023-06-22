@@ -22,7 +22,7 @@ const refineDataPoints = (data) => {
     title: item.title || item.name,
     backgroundImg: `${BASE_IMAGE_URL}/${BACKDROP_IMG_SIZE}/${item.backdrop_path}?api_key=${TMDB_API_KEY}`,
     year: item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4) || 'N/A',
-    rating: item.adult ? 'Adult' : 'E',
+    rating: item.adult ? 'Explicit' : 'Family',
     genreIds: item.genre_ids,
   }))
 }
