@@ -74,7 +74,7 @@ body {
   font-family: var(--ff-main);
   font-size: var(--fs-16);
   font-weight: var(--fw-light);
-  line-height: 1.5;
+  line-height: 1.25;
   text-align: left;
 }
 
@@ -94,6 +94,20 @@ ul {
 /* ================== */
 /* Typography */
 /* ================== */
+.section-title {
+  font-size: var(--fs-20);
+  font-weight: var(--fw-light);
+  letter-spacing: -0.312px;
+}
+
+.trending-title {
+  font-size: var(--fs-15);
+  font-weight: var(--fw-medium);
+}
+
+.info {
+  font-size: var(--fs-11);
+}
 
 /* ================== */
 /* Links */
@@ -104,28 +118,35 @@ ul {
 /* ================== */
 
 /* ================== */
-/* Utility styles */
+/* Icons */
 /* ================== */
 
-.icon > path {
-  /* You gotta give him a fill color inside CSS so the transition works */
+.icon-cat > path {
+  fill: var(--clr-white);
+}
+
+.icon-nav > path {
   fill: var(--clr-greyish-blue);
   transition: fill 250ms;
 }
 
-.icon {
+.icon-nav {
   transform: scale(0.9);
   transform: translateY(10%);
 }
 
-.icon:hover > path,
-.icon:active > path {
+.icon-nav:hover > path,
+.icon-nav:active > path {
   fill: var(--clr-soft-red);
 }
 
 .activeIcon > path {
   fill: var(--clr-white);
 }
+
+/* ================== */
+/* Utility styles */
+/* ================== */
 
 /* ================== */
 /* SECTIONS */

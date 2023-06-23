@@ -10,7 +10,7 @@ import Image from 'next/image'
 import BookmarkIcon from '../components/icons/BookmarkIcon'
 import HomeIcon from '../components/icons/HomeIcon'
 import MoviesIcon from './icons/MoviesIcon'
-import TvSeriesIcon from './icons/TvSeries'
+import TvSeriesIcon from './icons/TvSeriesIcon'
 import LogoIcon from './icons/LogoIcon'
 
 import classes from './Navbar.module.css'

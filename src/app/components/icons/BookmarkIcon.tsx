@@ -6,7 +6,7 @@ function BookmarkIcon({ classNameProp }) {
       xmlns='http://www.w3.org/2000/svg'
       width='17'
       height='20'
-      className={`${classNameProp} icon`}
+      className={`${classNameProp} icon-nav`}
     >
       <path
         fill='#5A698F'

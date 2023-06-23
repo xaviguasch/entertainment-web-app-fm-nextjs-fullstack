@@ -1,4 +1,21 @@
 .TrendingItem {
   width: 240px;
   height: 140px;
+
+  padding: 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: flex-start;
+}
+
+.nuggets {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+
+  opacity: 0.75;
 }
