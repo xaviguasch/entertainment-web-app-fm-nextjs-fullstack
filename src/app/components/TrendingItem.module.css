@@ -8,6 +8,7 @@
   flex-direction: column;
   justify-content: end;
   align-items: flex-start;
+  flex-shrink: 0;
 }
 
 .nuggets {

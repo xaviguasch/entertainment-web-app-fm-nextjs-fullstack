@@ -7,7 +7,7 @@ const TrendingItem = ({ data }) => {
   const { title, category, year, rating, backgroundImg } = data
 
   const styleBackground = {
-    background: `url(${backgroundImg})`,
+    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.75) 100%), url(${backgroundImg})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
 
