@@ -5,6 +5,7 @@ import styles from './page.module.css'
 import Search from './components/Search'
 import EntAppProvider from './context/EntAppProvider'
 import Trending from './components/Trending'
+import PopularMovies from './components/PopularMovies'
 
 // import { searchAPI } from '../../lib/tmdb'
 
@@ -18,6 +19,7 @@ export default function Home() {
         <main>
           <Search />
           <Trending />
+          <PopularMovies />
         </main>
       </EntAppProvider>
     </>
