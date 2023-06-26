@@ -20,12 +20,12 @@ const refineDataPoints = (data) => {
     title: item.title || item.name,
     backgroundImg: `${BASE_IMAGE_URL}/${BACKDROP_IMG_SIZE}/${item.backdrop_path}?api_key=${TMDB_API_KEY}`,
     year: item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4) || 'N/A',
-    rating: item.adult ? 'Adult' : 'E',
+    rating: item.adult ? 'Explicit' : 'Family',
     genreIds: item.genre_ids,
   }))
 }
 
-export const getTrendingAll = async () => {
+const getTrendingAll = async () => {
   const url = `${BASE_URL}/trending/all/day?api_key=${TMDB_API_KEY}`
 
   const data = await fetchData(url)
@@ -34,3 +34,9 @@ export const getTrendingAll = async () => {
   const refinedData = refineDataPoints(data.results)
   return refinedData
 }
+
+const getMovieData = async () => {
+  return 'hola'
+}
+
+export { getTrendingAll, getMovieData }

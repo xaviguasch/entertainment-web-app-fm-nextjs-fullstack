@@ -1,10 +1,17 @@
 import React from 'react'
+import { useRouter } from 'next/navigation'
+
 import classes from './TrendingItem.module.css'
 import MovieCatIcon from './icons/MovieCatIcon'
 import TvCatIcon from './icons/TvCatIcon'
 
 const TrendingItem = ({ data }) => {
-  const { title, category, year, rating, backgroundImg } = data
+  const { title, category, year, rating, backgroundImg, id } = data
+  const router = useRouter()
+
+  const handleClick = () => {
+    router.push(`/movies/${id}`)
+  }
 
   const styleBackground = {
     background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.75) 100%), url(${backgroundImg})`,
@@ -15,7 +22,7 @@ const TrendingItem = ({ data }) => {
   }
 
   return (
-    <div className={classes.TrendingItem} style={styleBackground}>
+    <div className={classes.TrendingItem} style={styleBackground} onClick={handleClick}>
       <div className={classes.nuggets}>
         <span className='info'>{year}</span>
         <span className={classes.dot}>&#8226;</span>

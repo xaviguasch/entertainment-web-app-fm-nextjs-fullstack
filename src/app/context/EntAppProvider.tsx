@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-
-import { getTrendingAll } from '../../../lib/tmdb'
+import { getTrendingAll } from '../hooks/tmdb'
 
 export const EntAppContext = createContext()
 

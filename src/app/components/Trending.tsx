@@ -4,10 +4,10 @@ import React, { useState, useContext, useEffect } from 'react'
 import classes from './Trending.module.css'
 import TrendingItem from './TrendingItem'
 
-import useFetchData from '../hooks/useFetchData'
+import useFetchTrending from '../hooks/useFetchTrending'
 
 const Trending = () => {
-  const { data, isLoading } = useFetchData()
+  const { data, isLoading } = useFetchTrending()
 
   return (
     <div className={classes.Trending}>
