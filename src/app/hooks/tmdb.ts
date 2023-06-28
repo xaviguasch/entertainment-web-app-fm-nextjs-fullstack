@@ -35,8 +35,55 @@ const getTrendingAll = async () => {
   return refinedData
 }
 
-const getMovieData = async () => {
-  return 'hola'
+const getMovieData = async (movieId) => {
+  const url = `${BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}`
+
+  const generalMovieData = await fetchData(url)
+  console.log(generalMovieData)
+
+  const creditsUrl = `${BASE_URL}/movie/${movieId}/credits?api_key=${TMDB_API_KEY}`
+
+  const movieCredits = await fetchData(creditsUrl)
+  console.log(movieCredits)
+
+  const director = movieCredits.crew.find(
+    (person) => person.job.toLowerCase() === 'director'
+  )
+
+  console.log(director)
+
+  const movieInfo = {
+    title: generalMovieData.title,
+    tagline: generalMovieData.tagline,
+    votes: generalMovieData.vote_average,
+    runtime: generalMovieData.runtime,
+    year: generalMovieData.release_date?.slice(0, 4),
+    language: generalMovieData.original_language,
+    genres: generalMovieData.genres.map((genre) => genre.name),
+    synopsis: generalMovieData.overview,
+    cast: movieCredits.cast.slice(0, 10),
+  }
+
+  return movieInfo
 }
 
-export { getTrendingAll, getMovieData }
+const getTvData = async (tvSeriesId) => {
+  const url = `${BASE_URL}/tv/${tvSeriesId}?api_key=${TMDB_API_KEY}`
+
+  const generalTvData = await fetchData(url)
+  console.log(generalTvData)
+
+  return ['hola from getTv']
+}
+
+const getItemData = async (itemId, category) => {
+  if (category === 'movie') {
+    return await getMovieData(itemId)
+  }
+
+  if (category === 'tvSeries') {
+    return await getTvData(itemId)
+  }
+}
+
+export { getTrendingAll, getItemData }

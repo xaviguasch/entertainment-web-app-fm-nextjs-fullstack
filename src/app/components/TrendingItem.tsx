@@ -10,7 +10,13 @@ const TrendingItem = ({ data }) => {
   const router = useRouter()
 
   const handleClick = () => {
-    router.push(`/movies/${id}`)
+    if (category === 'Movie') {
+      router.push(`/movies/${id}`)
+    }
+
+    if (category === 'TV Series') {
+      router.push(`/tv-series/${id}`)
+    }
   }
 
   const styleBackground = {

@@ -4,20 +4,19 @@ import React from 'react'
 import classes from './page.module.css'
 import useFetchItemData from '@/app/hooks/useFetchItemData'
 
-const MovieInfo = ({ params }) => {
-  console.log(params)
-  const { movieId } = params
+const TVSeriesInfo = ({ params }) => {
+  const { tvSeriesId } = params
 
-  const { data, isLoading } = useFetchItemData(movieId, 'movie')
+  const { data, isLoading } = useFetchItemData(tvSeriesId, 'tvSeries')
 
   return (
     <div className={classes.MovieInfo}>
       {isLoading && <h2>Loading...</h2>}
 
-      <h2>Movie Info</h2>
-      <p>{params.movieId}</p>
+      <h2>TV Series Info</h2>
+      <p>{params.tvSeriesId}</p>
     </div>
   )
 }
 
-export default MovieInfo
+export default TVSeriesInfo
