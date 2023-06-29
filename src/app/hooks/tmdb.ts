@@ -1,6 +1,6 @@
 const BASE_URL = 'https://api.themoviedb.org/3'
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p'
-const BACKDROP_IMG_SIZE = 'w500'
+const BACKDROP_IMG_SIZE = 'original'
 const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
 
 const fetchData = async (url: string) => {
@@ -50,7 +50,7 @@ const getMovieData = async (movieId) => {
     (person) => person.job.toLowerCase() === 'director'
   )
 
-  console.log(director)
+  const posterUrl = `${BASE_IMAGE_URL}/${BACKDROP_IMG_SIZE}${generalMovieData.poster_path}?api_key=${TMDB_API_KEY}`
 
   const movieInfo = {
     title: generalMovieData.title,
@@ -62,6 +62,7 @@ const getMovieData = async (movieId) => {
     genres: generalMovieData.genres.map((genre) => genre.name),
     synopsis: generalMovieData.overview,
     cast: movieCredits.cast.slice(0, 10),
+    poster: posterUrl,
   }
 
   return movieInfo
@@ -87,6 +88,7 @@ const getTvData = async (tvSeriesId) => {
     genres: generalTvData.genres.map((genre) => genre.name),
     synopsis: generalTvData.overview,
     cast: tvCredits.cast.slice(0, 10),
+    poster: tvCredits.poster_path,
   }
 
   return tvSeriesInfo

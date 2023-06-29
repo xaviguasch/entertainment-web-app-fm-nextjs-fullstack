@@ -58,6 +58,7 @@
 
   /* Text */
   --clr-white-txt: hsla(0, 0%, 100%, 1);
+  --clr-grey-txt: hsl(220, 13%, 91%, 0.5);
 
   /* Elements */
 
@@ -87,10 +88,6 @@ ul {
   list-style: none;
 }
 
-.testing {
-  background-color: green;
-}
-
 /* ================== */
 /* Typography */
 /* ================== */
@@ -105,8 +102,25 @@ ul {
   font-weight: var(--fw-medium);
 }
 
+.item-title {
+  font-size: var(--fs-26);
+  font-weight: var(--fw-medium);
+  letter-spacing: -0.35px;
+}
+
 .info {
   font-size: var(--fs-11);
+}
+
+.tagline {
+  font-size: var(--fs-16);
+  color: var(--clr-grey-txt);
+  font-weight: var(--fw-light);
+}
+
+.votes {
+  font-size: var(--fs-36);
+  font-weight: var(--fw-medium);
 }
 
 /* ================== */

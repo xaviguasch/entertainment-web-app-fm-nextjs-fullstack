@@ -1,2 +1,23 @@
 .MovieInfo {
 }
+
+.imgContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.poster {
+  max-width: 240px;
+  border-radius: 8px;
+}
+
+.mainInfo {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+}
