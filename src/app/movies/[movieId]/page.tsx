@@ -19,12 +19,13 @@ const MovieInfo = ({ params }) => {
   return (
     <div className={classes.MovieInfo}>
       <button type='button' onClick={() => router.push('/')}>
-        Dashboard
+        Go Back
       </button>
 
       {isLoading && <h2>Loading...</h2>}
 
-      {data && (
+      {/* Checks if the fetched data is not an empty object */}
+      {Object.keys(data).length !== 0 && (
         <>
           {/* change this to Image component */}
           <div className={classes.imgContainer}>
@@ -37,15 +38,54 @@ const MovieInfo = ({ params }) => {
             /> */}
           </div>
 
-          <div className={classes.mainInfo}>
-            <h2 className='item-title'>{data.title}</h2>
-            <span className='tagline'>{data.tagline}</span>
-            <span className='votes'>{data.votes?.toFixed(1)}</span>
-          </div>
+          <div className={classes.infoCol}>
+            <div className={classes.mainInfo}>
+              <h2 className='item-title'>{data.title}</h2>
+              <div className={classes.director}>
+                <span className='director-credits'>Directed by</span>
+                <span className='director-name'>{data.director}</span>
+              </div>
+              <span className='tagline'>{data.tagline}</span>
+              <span className='votes'>{data.votes?.toFixed(1)}</span>
+            </div>
 
-          <div>
-            <span>length</span>
-            <span>{data.runtime}</span>
+            <div className={classes.secondaryInfo}>
+              <div className={classes.pair}>
+                <span className='info-tag'>Length</span>
+                <span className='info-data'>{data.runtime}</span>
+              </div>
+              <div className={classes.pair}>
+                <span className='info-tag'>Year</span>
+                <span className='info-data'>{data.year}</span>
+              </div>
+              <div className={classes.pair}>
+                <span className='info-tag'>Language</span>
+                <span className='info-data'>{data.language?.toUpperCase()}</span>
+              </div>
+            </div>
+
+            <div className={classes.tertiaryInfo}>
+              <h3 className='section-title'>Genres</h3>
+              <ul>
+                {data.genres.map((genre) => {
+                  return <li key={genre}>{genre}</li>
+                })}
+              </ul>
+            </div>
+
+            <div className={classes.tertiaryInfo}>
+              <h3 className='section-title'>Synopsis</h3>
+              <p className='text'>{data.synopsis}</p>
+            </div>
+
+            <div className={classes.tertiaryInfo}>
+              <h3 className='section-title'>Cast</h3>
+              <ul>
+                {data.cast.map((actor) => {
+                  return <li key={actor.id}>{actor.name}</li>
+                })}
+              </ul>
+            </div>
           </div>
         </>
       )}

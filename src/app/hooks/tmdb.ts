@@ -63,6 +63,7 @@ const getMovieData = async (movieId) => {
     synopsis: generalMovieData.overview,
     cast: movieCredits.cast.slice(0, 10),
     poster: posterUrl,
+    director: director.name,
   }
 
   return movieInfo

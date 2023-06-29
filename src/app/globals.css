@@ -108,6 +108,20 @@ ul {
   letter-spacing: -0.35px;
 }
 
+.director-credits,
+.info-tag {
+  font-size: var(--fs-14);
+  color: var(--clr-grey-txt);
+  font-weight: var(--fw-light);
+}
+
+.director-name {
+  font-size: var(--fs-16);
+  font-weight: var(--fw-medium);
+  color: var(--clr-white-txt);
+  text-transform: uppercase;
+}
+
 .info {
   font-size: var(--fs-11);
 }
@@ -121,6 +135,15 @@ ul {
 .votes {
   font-size: var(--fs-36);
   font-weight: var(--fw-medium);
+}
+
+.info-data {
+  font-size: var(--fs-14);
+}
+
+.text {
+  font-size: var(--fs-16);
+  line-height: 1.5;
 }
 
 /* ================== */
