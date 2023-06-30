@@ -66,9 +66,13 @@ const MovieInfo = ({ params }) => {
 
             <div className={classes.tertiaryInfo}>
               <h3 className='section-title'>Genres</h3>
-              <ul>
+              <ul className={classes.proList}>
                 {data.genres.map((genre) => {
-                  return <li key={genre}>{genre}</li>
+                  return (
+                    <li key={genre} className='info-pill'>
+                      {genre}
+                    </li>
+                  )
                 })}
               </ul>
             </div>
@@ -80,9 +84,13 @@ const MovieInfo = ({ params }) => {
 
             <div className={classes.tertiaryInfo}>
               <h3 className='section-title'>Cast</h3>
-              <ul>
+              <ul className={classes.proList}>
                 {data.cast.map((actor) => {
-                  return <li key={actor.id}>{actor.name}</li>
+                  return (
+                    <li key={actor.id} className='info-pill'>
+                      {actor.name}
+                    </li>
+                  )
                 })}
               </ul>
             </div>
