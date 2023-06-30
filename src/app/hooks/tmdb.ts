@@ -35,6 +35,16 @@ const getTrendingAll = async () => {
   return refinedData
 }
 
+const getPopularMovies = async () => {
+  const url = `${BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}`
+
+  const data = await fetchData(url)
+
+  // we extract and reestructure the correct data points
+  const refinedData = refineDataPoints(data.results)
+  return refinedData
+}
+
 const getMovieData = async (movieId) => {
   const url = `${BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}`
 
@@ -105,4 +115,4 @@ const getItemData = async (itemId, category) => {
   }
 }
 
-export { getTrendingAll, getItemData }
+export { getTrendingAll, getPopularMovies, getItemData }
