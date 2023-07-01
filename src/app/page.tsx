@@ -7,6 +7,8 @@ import EntAppProvider from './context/EntAppProvider'
 import Trending from './components/Trending'
 import PopularMovies from './components/PopularMovies'
 
+import classes from './page.module.css'
+
 // import { searchAPI } from '../../lib/tmdb'
 
 // const result = searchAPI().then((res) => console.log(res))
@@ -16,11 +18,9 @@ export default function Home() {
   return (
     <>
       <EntAppProvider>
-        <main>
-          <Search />
-          <Trending />
-          <PopularMovies />
-        </main>
+        <Search />
+        <Trending />
+        <PopularMovies />
       </EntAppProvider>
     </>
   )
