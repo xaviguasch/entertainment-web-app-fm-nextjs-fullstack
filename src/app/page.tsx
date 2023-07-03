@@ -6,6 +6,7 @@ import Search from './components/Search'
 import EntAppProvider from './context/EntAppProvider'
 import Trending from './components/Trending'
 import PopularMovies from './components/PopularMovies'
+import PopularTvSeries from './components/PopularTvSeries'
 
 import classes from './page.module.css'
 
@@ -22,6 +23,7 @@ export default function Home() {
           <Search />
           <Trending />
           <PopularMovies />
+          <PopularTvSeries />
         </div>
       </EntAppProvider>
     </>

@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
-import { getTrendingAll } from './tmdb'
+import { getTrendingCat } from './tmdb'
 
-const useFetchTrending = () => {
+const useFetchTrending = (category) => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchCall = async () => {
       try {
-        const fetchedData = await getTrendingAll()
+        const fetchedData = await getTrendingCat(category)
 
         console.log(fetchedData)
 

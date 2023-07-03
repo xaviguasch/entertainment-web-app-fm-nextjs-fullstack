@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react'
-import { getPopularMovies } from './tmdb'
+import { getPopular } from './tmdb'
 
-const useFetchPopular = () => {
+const useFetchPopular = (category) => {
   const [data, setData] = useState([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchCall = async () => {
       try {
-        const fetchedData = await getPopularMovies()
+        const fetchedData = await getPopular(category)
 
         console.log(fetchedData)
 

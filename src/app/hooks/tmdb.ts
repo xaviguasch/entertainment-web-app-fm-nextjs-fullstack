@@ -25,8 +25,9 @@ const refineDataPoints = (data) => {
   }))
 }
 
-const getTrendingAll = async () => {
-  const url = `${BASE_URL}/trending/all/day?api_key=${TMDB_API_KEY}`
+const getTrendingCat = async (category) => {
+  console.log(category)
+  const url = `${BASE_URL}/trending/${category}/day?api_key=${TMDB_API_KEY}`
 
   const data = await fetchData(url)
 
@@ -35,9 +36,10 @@ const getTrendingAll = async () => {
   return refinedData
 }
 
-const getPopularMovies = async () => {
-  const url = `${BASE_URL}/movie/popular?api_key=${TMDB_API_KEY}`
+const getPopular = async (category) => {
+  const url = `${BASE_URL}/${category}/popular?language=en-US&api_key=${TMDB_API_KEY}`
 
+  console.log(url)
   const data = await fetchData(url)
 
   // we extract and reestructure the correct data points
@@ -115,4 +117,4 @@ const getItemData = async (itemId, category) => {
   }
 }
 
-export { getTrendingAll, getPopularMovies, getItemData }
+export { getTrendingCat, getPopular, getItemData }

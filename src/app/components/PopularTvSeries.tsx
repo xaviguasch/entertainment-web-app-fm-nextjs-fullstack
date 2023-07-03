@@ -1,16 +1,16 @@
 'use client'
 
 import React, { useState, useEffect } from 'react'
-import classes from './PopularMovies.module.css'
-import useFetchPopular from '../hooks/useFetchPopular'
+import classes from './PopularTvSeries.module.css'
+import useFetchTrending from '../hooks/useFetchTrending'
 import Item from './Item'
 
-const PopularMovies = () => {
-  const { data, isLoading } = useFetchPopular('movie')
+const PopularTvSeries = () => {
+  const { data, isLoading } = useFetchTrending('tv')
 
   return (
-    <div className={classes.PopularMovies}>
-      <h2 className='section-title'>Popular Movies</h2>
+    <div className={classes.PopularTvSeries}>
+      <h2 className='section-title'>Popular TV Series</h2>
       {isLoading && <h2>Loading...</h2>}
 
       <div className={classes.popularCols}>
@@ -25,4 +25,4 @@ const PopularMovies = () => {
   )
 }
 
-export default PopularMovies
+export default PopularTvSeries

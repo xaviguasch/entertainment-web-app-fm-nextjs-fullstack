@@ -7,7 +7,7 @@ import TrendingItem from './TrendingItem'
 import useFetchTrending from '../hooks/useFetchTrending'
 
 const Trending = () => {
-  const { data, isLoading } = useFetchTrending()
+  const { data, isLoading } = useFetchTrending('all')
 
   return (
     <div className={classes.Trending}>
