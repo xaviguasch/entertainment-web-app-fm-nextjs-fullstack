@@ -1,3 +1,9 @@
 .Home {
   padding: 26px 16px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 24px;
 }

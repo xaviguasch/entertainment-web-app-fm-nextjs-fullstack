@@ -15,9 +15,11 @@ const PopularMovies = () => {
 
       <div className={classes.popularCols}>
         {data.length > 0 &&
-          data.map((item: object) => {
-            return <Item key={item.id} data={...item} />
-          })}
+          data
+            .map((item: object) => {
+              return <Item key={item.id} data={...item} />
+            })
+            .slice(0, 12)}
       </div>
     </div>
   )

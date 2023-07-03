@@ -18,9 +18,11 @@ export default function Home() {
   return (
     <>
       <EntAppProvider>
-        <Search />
-        <Trending />
-        <PopularMovies />
+        <div className={classes.Home}>
+          <Search />
+          <Trending />
+          <PopularMovies />
+        </div>
       </EntAppProvider>
     </>
   )
