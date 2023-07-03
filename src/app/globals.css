@@ -198,6 +198,10 @@ ul {
   fill: var(--clr-white);
 }
 
+.search-icon {
+  transform: scale(0.75);
+}
+
 /* ================== */
 /* Utility styles */
 /* ================== */

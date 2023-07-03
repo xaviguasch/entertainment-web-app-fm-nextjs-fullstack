@@ -4,6 +4,7 @@ import React, { useState, useContext } from 'react'
 import classes from './Search.module.css'
 
 import { EntAppContext } from '../context/EntAppProvider'
+import SearchIcon from './icons/SearchIcon'
 
 const Search = () => {
   const [searchInput, setSearchInput] = useState('')
@@ -17,16 +18,18 @@ const Search = () => {
   }
 
   return (
-    <div>
-      <form action=''>
-        <label htmlFor='searchInput'></label>
+    <div className={classes.Search}>
+      <label className={classes.label} htmlFor='searchInput'>
+        <SearchIcon />
         <input
           type='text'
           id='searchInput'
+          placeholder='Search for movies or TV series'
           value={searchInput}
           onChange={searchInputHandler}
+          className={classes.inputText}
         />
-      </form>
+      </label>
     </div>
   )
 }

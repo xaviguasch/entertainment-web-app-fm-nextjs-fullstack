@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { getTrendingAll } from '../hooks/tmdb'
+import { getTrendingCat } from '../hooks/tmdb'
 
 export const EntAppContext = createContext()
 
@@ -9,7 +9,7 @@ function EntAppProvider({ children }) {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const fetchedData = await getTrendingAll()
+        const fetchedData = await getTrendingCat('all')
         setData(fetchedData)
       } catch (error) {
         console.log(error)
