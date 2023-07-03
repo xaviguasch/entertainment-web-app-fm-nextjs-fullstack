@@ -1,12 +1,11 @@
 'use client'
 
+import { useContext } from 'react'
 import Image from 'next/image'
 import styles from './page.module.css'
-import Search from './components/Search'
 import EntAppProvider from './context/EntAppProvider'
-import Trending from './components/Trending'
-import PopularMovies from './components/PopularMovies'
-import PopularTvSeries from './components/PopularTvSeries'
+
+import MainContainer from './components/MainContainer'
 
 import classes from './page.module.css'
 
@@ -19,12 +18,7 @@ export default function Home() {
   return (
     <>
       <EntAppProvider>
-        <div className={classes.Home}>
-          <Search />
-          <Trending />
-          <PopularMovies />
-          <PopularTvSeries />
-        </div>
+        <MainContainer />
       </EntAppProvider>
     </>
   )

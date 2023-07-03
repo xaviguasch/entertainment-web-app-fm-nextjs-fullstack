@@ -5,6 +5,7 @@ export const EntAppContext = createContext()
 
 function EntAppProvider({ children }) {
   const [data, setData] = useState([])
+  const [searchQuery, setSearchQuery] = useState('')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -21,6 +22,7 @@ function EntAppProvider({ children }) {
 
   let entAppState = {
     data,
+    searchQuery,
   }
 
   return <EntAppContext.Provider value={entAppState}>{children}</EntAppContext.Provider>
