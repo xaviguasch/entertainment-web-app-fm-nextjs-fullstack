@@ -7,14 +7,10 @@ import { EntAppContext } from '../context/EntAppProvider'
 import SearchIcon from './icons/SearchIcon'
 
 const Search = () => {
-  const [searchInput, setSearchInput] = useState('')
-
-  // const theme = useContext(EntAppContext)
-
-  // console.log(theme)
+  const { searchQuery, setSearchQuery } = useContext(EntAppContext)
 
   function searchInputHandler(e) {
-    setSearchInput(e.target.value)
+    setSearchQuery(e.target.value)
   }
 
   return (
@@ -25,7 +21,7 @@ const Search = () => {
           type='text'
           id='searchInput'
           placeholder='Search for movies or TV series'
-          value={searchInput}
+          value={searchQuery}
           onChange={searchInputHandler}
           className={classes.inputText}
         />

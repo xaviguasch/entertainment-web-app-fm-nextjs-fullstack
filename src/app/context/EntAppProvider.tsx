@@ -1,28 +1,37 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import { getTrendingCat } from '../hooks/tmdb'
+import { getTrendingCat, searchData } from '../hooks/tmdb'
 
 export const EntAppContext = createContext()
 
 function EntAppProvider({ children }) {
-  const [data, setData] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
+  const [searchResults, setSearchResults] = useState([])
 
   useEffect(() => {
+    // Tried implementing abortController to avoid too many
+    // concurrent API calls, but haven't succeeded because I'm
+    // using a helper helper fetcher function in another file.
+    // PENDING! KEEP TRYING
     const fetchData = async () => {
       try {
-        const fetchedData = await getTrendingCat('all')
-        setData(fetchedData)
-      } catch (error) {
-        console.log(error)
+        const data = await searchData(searchQuery)
+
+        console.log(data)
+
+        setSearchResults(data)
+      } catch (err) {
+        console.error(err)
       }
     }
 
-    fetchData()
-  }, [])
+    if (searchQuery.length >= 3) {
+      fetchData()
+    }
+  }, [searchQuery])
 
   let entAppState = {
-    data,
     searchQuery,
+    setSearchQuery,
   }
 
   return <EntAppContext.Provider value={entAppState}>{children}</EntAppContext.Provider>

@@ -117,4 +117,14 @@ const getItemData = async (itemId, category) => {
   }
 }
 
-export { getTrendingCat, getPopular, getItemData }
+const searchData = async (query: string) => {
+  const url = `${BASE_URL}/search/multi?query=${query}&include_adult=false&language=en-US&page=1&api_key=${TMDB_API_KEY}`
+
+  const searchResults = await fetchData(url)
+
+  console.log(searchResults)
+
+  return searchResults
+}
+
+export { getTrendingCat, getPopular, getItemData, searchData }

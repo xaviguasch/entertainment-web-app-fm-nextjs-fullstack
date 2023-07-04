@@ -8,7 +8,9 @@ import PopularMovies from './PopularMovies'
 import PopularTvSeries from './PopularTvSeries'
 
 const MainContainer = () => {
-  const contextData = useContext(EntAppContext)
+  // const contextData = useContext(EntAppContext)
+
+  // console.log(contextData)
 
   return (
     <div className={classes.MainContainer}>
