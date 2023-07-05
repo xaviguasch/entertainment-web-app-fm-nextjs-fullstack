@@ -124,7 +124,10 @@ const searchData = async (query: string) => {
 
   console.log(searchResults)
 
-  return searchResults
+  // we extract and reestructure the correct data points
+  const refinedData = refineDataPoints(searchResults.results)
+  console.log(refinedData)
+  return refinedData
 }
 
 export { getTrendingCat, getPopular, getItemData, searchData }

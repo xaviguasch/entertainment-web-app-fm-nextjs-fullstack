@@ -1,6 +1,6 @@
 'use client'
 
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import classes from './PopularTvSeries.module.css'
 import useFetchTrending from '../hooks/useFetchTrending'
 import Item from './Item'
