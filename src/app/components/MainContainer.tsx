@@ -6,19 +6,23 @@ import Search from './Search'
 import Trending from './Trending'
 import PopularMovies from './PopularMovies'
 import PopularTvSeries from './PopularTvSeries'
+import SearchResults from './SearchResults'
 
 const MainContainer = () => {
-  // const contextData = useContext(EntAppContext)
-
-  // console.log(contextData)
+  const { searchedData } = useContext(EntAppContext)
 
   return (
     <div className={classes.MainContainer}>
       <Search />
-      <Trending />
-      <PopularMovies />
-      <PopularTvSeries />
-      {/* {contextData && <p>{contextData.searchQuery}</p>} */}
+      {searchedData.length === 0 ? (
+        <>
+          <Trending />
+          <PopularMovies />
+          <PopularTvSeries />
+        </>
+      ) : (
+        <SearchResults items={searchedData} />
+      )}
     </div>
   )
 }

@@ -5,33 +5,45 @@ export const EntAppContext = createContext()
 
 function EntAppProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('')
-  const [searchResults, setSearchResults] = useState([])
+  const [searchedData, setSearchedData] = useState([])
 
   useEffect(() => {
     // Tried implementing abortController to avoid too many
-    // concurrent API calls, but haven't succeeded because I'm
-    // using a helper helper fetcher function in another file.
-    // PENDING! KEEP TRYING
+    // concurrent API calls, but it's not clear it's working.
+    // PENDING REVISION!
+
+    if (searchQuery.length < 3) {
+      // You don't make API calls when the search input has
+      // less than 3 characters, and you also erase the results
+      // whenever the input is blank again
+      setSearchedData([])
+      return
+    }
+
+    const controller = new AbortController()
+
     const fetchData = async () => {
       try {
-        const data = await searchData(searchQuery)
+        console.log('inside')
+        const data = await searchData(searchQuery, controller.signal)
 
         console.log(data)
 
-        setSearchResults(data)
+        setSearchedData(data)
       } catch (err) {
         console.error(err)
       }
     }
 
-    if (searchQuery.length >= 3) {
-      fetchData()
-    }
+    fetchData()
+
+    return () => controller.abort()
   }, [searchQuery])
 
   let entAppState = {
     searchQuery,
     setSearchQuery,
+    searchedData,
   }
 
   return <EntAppContext.Provider value={entAppState}>{children}</EntAppContext.Provider>
