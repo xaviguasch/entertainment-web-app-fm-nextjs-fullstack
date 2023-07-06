@@ -9,7 +9,7 @@ import PopularTvSeries from './PopularTvSeries'
 import SearchResults from './SearchResults'
 
 const MainContainer = () => {
-  const { searchedData } = useContext(EntAppContext)
+  const { searchedData, searchQuery } = useContext(EntAppContext)
 
   return (
     <div className={classes.MainContainer}>
@@ -21,7 +21,7 @@ const MainContainer = () => {
           <PopularTvSeries />
         </>
       ) : (
-        <SearchResults items={searchedData} />
+        <SearchResults items={searchedData} searchQuery={searchQuery} />
       )}
     </div>
   )

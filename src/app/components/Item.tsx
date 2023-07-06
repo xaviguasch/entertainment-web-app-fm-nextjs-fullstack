@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import { useRouter } from 'next/navigation'
 
@@ -5,6 +7,9 @@ import classes from './Item.module.css'
 
 import MovieCatIcon from './icons/MovieCatIcon'
 import TvCatIcon from './icons/TvCatIcon'
+
+// replace fallback image icon
+const fallbackSrc = 'https://img.icons8.com/?size=512&id=Lm8LDO41sshR&format=png'
 
 const Item = ({ data }) => {
   const { title, category, year, rating, backgroundImg, id } = data
@@ -24,7 +29,14 @@ const Item = ({ data }) => {
   return (
     <div className={classes.Item} onClick={handleClick}>
       <div className={classes.ImgContainer}>
-        <img src={backgroundImg} alt={title} />
+        <img
+          src={backgroundImg}
+          alt={title}
+          onError={(e) => {
+            e.target.onError = null
+            e.target.src = fallbackSrc
+          }}
+        />
       </div>
 
       <div className={classes.nuggets}>
