@@ -22,6 +22,7 @@ const refineDataPoints = (data) => {
     year: item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4) || 'N/A',
     rating: item.adult ? 'Explicit' : 'Family',
     genreIds: item.genre_ids,
+    bookmarked: false,
   }))
 }
 
