@@ -1,3 +1,5 @@
+'use client'
+
 import { createContext, useContext, useState, useEffect } from 'react'
 import { getTrendingCat, searchData } from '../hooks/tmdb'
 
@@ -6,6 +8,7 @@ export const EntAppContext = createContext()
 function EntAppProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchedData, setSearchedData] = useState([])
+  const [bookmarks, setBookmarks] = useState([{ title: 'movieTest' }])
 
   useEffect(() => {
     // Tried implementing abortController to avoid too many
@@ -44,6 +47,8 @@ function EntAppProvider({ children }) {
     searchQuery,
     setSearchQuery,
     searchedData,
+    bookmarks,
+    setBookmarks,
   }
 
   return <EntAppContext.Provider value={entAppState}>{children}</EntAppContext.Provider>

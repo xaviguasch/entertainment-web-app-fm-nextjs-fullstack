@@ -3,7 +3,6 @@
 import { useContext } from 'react'
 import Image from 'next/image'
 import styles from './page.module.css'
-import EntAppProvider from './context/EntAppProvider'
 
 import MainContainer from './components/MainContainer'
 
@@ -17,9 +16,7 @@ import classes from './page.module.css'
 export default function Home() {
   return (
     <>
-      <EntAppProvider>
-        <MainContainer />
-      </EntAppProvider>
+      <MainContainer />
     </>
   )
 }
