@@ -1,6 +1,7 @@
 import EntAppProvider from './context/EntAppProvider'
 
 import Navbar from './components/Navbar'
+import Search from './components/Search'
 import './globals.css'
 
 export const metadata = {
@@ -13,6 +14,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <EntAppProvider>
           <Navbar />
+          <Search />
           {children}
         </EntAppProvider>
       </body>

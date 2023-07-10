@@ -13,6 +13,7 @@ const MainContainer = () => {
 
   return (
     <div className={classes.MainContainer}>
+      {/* move Search component to layout */}
       <Search />
       {searchedData.length === 0 ? (
         <>
