@@ -8,7 +8,7 @@ export const EntAppContext = createContext()
 function EntAppProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchedData, setSearchedData] = useState([])
-  const [bookmarks, setBookmarks] = useState([{ title: 'movieTest' }])
+  const [bookmarks, setBookmarks] = useState([447365, 555959, 1001001])
 
   useEffect(() => {
     // Tried implementing abortController to avoid too many
