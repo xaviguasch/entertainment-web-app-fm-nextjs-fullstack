@@ -16,6 +16,8 @@ import EmptyBookmarkIcon from './icons/EmpytBookmarkIcon'
 const fallbackSrc = 'https://img.icons8.com/?size=512&id=Lm8LDO41sshR&format=png'
 
 const Item = ({ data }) => {
+  // PENDING: re-do the click on picture functionalitiy
+  // now in "handleClick"
   const { bookmarks, setBookmarks } = useContext(EntAppContext)
 
   const { title, category, year, rating, backgroundImg, id } = data
@@ -38,8 +40,18 @@ const Item = ({ data }) => {
     }
   }
 
+  const handleBookmark = (e) => {
+    if (isBookmarked) {
+      setBookmarks((prev) => {
+        return prev.filter((bm) => bm !== id)
+      })
+    } else {
+      setBookmarks((prev) => [...prev, id])
+    }
+  }
+
   return (
-    <div className={classes.Item} onClick={handleClick}>
+    <div className={classes.Item}>
       <div className={classes.ImgContainer}>
         <img
           src={backgroundImg}
@@ -50,7 +62,12 @@ const Item = ({ data }) => {
           }}
         />
       </div>
-      {isBookmarked ? <BookmarkIcon /> : <EmptyBookmarkIcon />}
+
+      <div className={classes.bookmarkWrapper} onClick={handleBookmark}>
+        <div className={classes.bmInnerWrapper}>
+          {isBookmarked ? <BookmarkIcon /> : <EmptyBookmarkIcon />}
+        </div>
+      </div>
 
       <div className={classes.nuggets}>
         <span className='info'>{year}</span>

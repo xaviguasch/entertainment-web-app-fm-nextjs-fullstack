@@ -55,6 +55,7 @@
 
   --clr-soft-red: hsl(0, 97%, 63%);
   --clr-greyish-blue: hsl(223, 23%, 46%);
+  --clr-greyish-blue-transparent: hsla(223, 23%, 46%, 0.5);
 
   /* Text */
   --clr-white-txt: hsla(0, 0%, 100%, 1);
