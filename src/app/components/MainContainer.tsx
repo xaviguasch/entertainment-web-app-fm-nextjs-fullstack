@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { EntAppContext } from '../context/EntAppProvider'
 
 import classes from './MainContainer.module.css'
-import Search from './Search'
 import Trending from './Trending'
 import PopularMovies from './PopularMovies'
 import PopularTvSeries from './PopularTvSeries'
@@ -13,8 +12,6 @@ const MainContainer = () => {
 
   return (
     <div className={classes.MainContainer}>
-      {/* move Search component to layout */}
-      <Search />
       {searchedData.length === 0 ? (
         <>
           <Trending />

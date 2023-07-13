@@ -14,8 +14,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <EntAppProvider>
           <Navbar />
-          <Search />
-          {children}
+          <div className='layout-content'>
+            <Search />
+            {children}
+          </div>
         </EntAppProvider>
       </body>
     </html>

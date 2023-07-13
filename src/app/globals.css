@@ -207,6 +207,10 @@ ul {
 /* Utility styles */
 /* ================== */
 
+.layout-content {
+  padding: 26px 16px;
+}
+
 /* ================== */
 /* SECTIONS */
 /* ================== */
