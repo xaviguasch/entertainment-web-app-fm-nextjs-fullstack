@@ -65,7 +65,7 @@ const Item = ({ data }) => {
 
       <div className={classes.bookmarkWrapper} onClick={handleBookmark}>
         <div className={classes.bmInnerWrapper}>
-          {isBookmarked ? <BookmarkIcon /> : <EmptyBookmarkIcon />}
+          {isBookmarked ? <BookmarkIcon classNameProp='mini' /> : <EmptyBookmarkIcon />}
         </div>
       </div>
 

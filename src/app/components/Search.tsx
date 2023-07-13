@@ -3,11 +3,27 @@
 import React, { useState, useContext } from 'react'
 import classes from './Search.module.css'
 
+import { usePathname } from 'next/navigation'
+
 import { EntAppContext } from '../context/EntAppProvider'
 import SearchIcon from './icons/SearchIcon'
 
 const Search = () => {
   const { searchQuery, setSearchQuery } = useContext(EntAppContext)
+
+  const tab = usePathname().substring(1)
+  console.log(tab)
+  let placeholderText = ''
+
+  if (tab === '') {
+    placeholderText = 'Search for movies or TV series'
+  } else if (tab === 'bookmarks') {
+    placeholderText = 'Search for bookmarked movies and shows'
+  } else if (tab === 'movies') {
+    placeholderText = 'Search for movies'
+  } else if (tab === 'tv-series') {
+    placeholderText = 'Search for TV series'
+  }
 
   function searchInputHandler(e) {
     setSearchQuery(e.target.value)
@@ -20,7 +36,7 @@ const Search = () => {
         <input
           type='text'
           id='searchInput'
-          placeholder='Search for movies or TV series'
+          placeholder={placeholderText}
           value={searchQuery}
           onChange={searchInputHandler}
           className={classes.inputText}

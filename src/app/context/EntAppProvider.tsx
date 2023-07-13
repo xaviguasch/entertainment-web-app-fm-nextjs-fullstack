@@ -3,6 +3,8 @@
 import { createContext, useContext, useState, useEffect } from 'react'
 import { getTrendingCat, searchData } from '../hooks/tmdb'
 
+import { usePathname } from 'next/navigation'
+
 export const EntAppContext = createContext()
 
 function EntAppProvider({ children }) {
@@ -10,10 +12,14 @@ function EntAppProvider({ children }) {
   const [searchedData, setSearchedData] = useState([])
   const [bookmarks, setBookmarks] = useState([447365, 555959, 1001001])
 
+  const tab = usePathname().substring(1)
+
+
   useEffect(() => {
     // Tried implementing abortController to avoid too many
     // concurrent API calls, but it's not clear it's working.
     // PENDING REVISION!
+
 
     if (searchQuery.length < 3) {
       // You don't make API calls when the search input has
