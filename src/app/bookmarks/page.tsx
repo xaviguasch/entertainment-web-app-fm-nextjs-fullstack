@@ -16,15 +16,36 @@ const Bookmarks = () => {
 
   return (
     <div className={classes.Bookmarks}>
-      <h2 className='section-title'>Bookmarked Movies</h2>
+      <div>
+        <h2 className='section-title'>Bookmarked Movies</h2>
 
-      <div className={classes.bookmarkCols}>
-        {bookmarks.length > 0 &&
-          bookmarks
-            .map((item: object) => {
-              return <Item key={item.id} data={...item} />
-            })
-            .slice(0, 12)}
+        <div className={classes.bookmarkCols}>
+          {bookmarks.length > 0 &&
+            bookmarks
+              .filter((item: object) => {
+                return item.category === 'Movie'
+              })
+              .map((item: object) => {
+                return <Item key={item.id} data={...item} />
+              })
+              .slice(0, 12)}
+        </div>
+      </div>
+
+      <div>
+        <h2 className='section-title'>Bookmarked Series</h2>
+
+        <div className={classes.bookmarkCols}>
+          {bookmarks.length > 0 &&
+            bookmarks
+              .filter((item: object) => {
+                return item.category === 'TV Series'
+              })
+              .map((item: object) => {
+                return <Item key={item.id} data={...item} />
+              })
+              .slice(0, 12)}
+        </div>
       </div>
     </div>
   )
