@@ -10,16 +10,14 @@ export const EntAppContext = createContext()
 function EntAppProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('')
   const [searchedData, setSearchedData] = useState([])
-  const [bookmarks, setBookmarks] = useState([447365, 555959, 1001001])
+  const [bookmarks, setBookmarks] = useState([])
 
   const tab = usePathname().substring(1)
-
 
   useEffect(() => {
     // Tried implementing abortController to avoid too many
     // concurrent API calls, but it's not clear it's working.
     // PENDING REVISION!
-
 
     if (searchQuery.length < 3) {
       // You don't make API calls when the search input has

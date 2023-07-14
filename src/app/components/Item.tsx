@@ -26,9 +26,7 @@ const Item = ({ data }) => {
   console.log(bookmarks[0] === id)
   const router = useRouter()
 
-  const isBookmarked = bookmarks.includes(id)
-
-  console.log(isBookmarked)
+  const isBookmarked = bookmarks.some((bm) => bm.id === data.id)
 
   const handleClick = () => {
     if (category === 'Movie') {
@@ -40,13 +38,16 @@ const Item = ({ data }) => {
     }
   }
 
+  // refactor function so it adds the whole object instead
+  // of just the ID
+
   const handleBookmark = (e) => {
     if (isBookmarked) {
       setBookmarks((prev) => {
-        return prev.filter((bm) => bm !== id)
+        return prev.filter((bm) => bm.id !== data.id)
       })
     } else {
-      setBookmarks((prev) => [...prev, id])
+      setBookmarks((prev) => [...prev, data])
     }
   }
 
