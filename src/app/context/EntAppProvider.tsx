@@ -19,6 +19,15 @@ function EntAppProvider({ children }) {
     // concurrent API calls, but it's not clear it's working.
     // PENDING REVISION!
 
+    if (tab === 'bookmarks') {
+      console.log('inside bookmarks!')
+
+      // add functionality that limits the search items
+      // to only the bookmarks
+
+      return
+    }
+
     if (searchQuery.length < 3) {
       // You don't make API calls when the search input has
       // less than 3 characters, and you also erase the results

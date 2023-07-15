@@ -26,6 +26,9 @@ const Search = () => {
   }
 
   function searchInputHandler(e) {
+    // add functionality that changes the searched items
+    // depending on the page you're in
+
     setSearchQuery(e.target.value)
   }
 

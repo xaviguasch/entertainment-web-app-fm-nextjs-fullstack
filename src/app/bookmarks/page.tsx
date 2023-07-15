@@ -16,7 +16,7 @@ const Bookmarks = () => {
 
   return (
     <div className={classes.Bookmarks}>
-      <div>
+      <div className={classes.group}>
         <h2 className='section-title'>Bookmarked Movies</h2>
 
         <div className={classes.bookmarkCols}>
@@ -32,7 +32,7 @@ const Bookmarks = () => {
         </div>
       </div>
 
-      <div>
+      <div className={classes.group}>
         <h2 className='section-title'>Bookmarked Series</h2>
 
         <div className={classes.bookmarkCols}>

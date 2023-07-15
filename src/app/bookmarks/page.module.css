@@ -13,3 +13,11 @@
   grid-template-columns: 1fr 1fr;
   gap: 15px;
 }
+
+.group {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 24px;
+}
