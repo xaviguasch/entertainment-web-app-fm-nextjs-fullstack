@@ -25,6 +25,12 @@ function EntAppProvider({ children }) {
       // add functionality that limits the search items
       // to only the bookmarks
 
+      const bookmarkSearchResults = bookmarks.filter((bm) => {
+        return bm.title.toLowerCase().includes(searchQuery.toLowerCase())
+      })
+
+      setSearchedData(bookmarkSearchResults)
+
       return
     }
 
