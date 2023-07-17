@@ -22,14 +22,15 @@ function EntAppProvider({ children }) {
     if (tab === 'bookmarks') {
       console.log('inside bookmarks!')
 
-      // add functionality that limits the search items
-      // to only the bookmarks
+      setSearchedData([])
 
-      const bookmarkSearchResults = bookmarks.filter((bm) => {
-        return bm.title.toLowerCase().includes(searchQuery.toLowerCase())
-      })
+      if (searchQuery.length >= 3) {
+        const bookmarkSearchResults = bookmarks.filter((bm) => {
+          return bm.title.toLowerCase().includes(searchQuery.toLowerCase())
+        })
 
-      setSearchedData(bookmarkSearchResults)
+        setSearchedData(bookmarkSearchResults)
+      }
 
       return
     }
@@ -68,6 +69,7 @@ function EntAppProvider({ children }) {
     searchQuery,
     setSearchQuery,
     searchedData,
+    setSearchedData,
     bookmarks,
     setBookmarks,
   }

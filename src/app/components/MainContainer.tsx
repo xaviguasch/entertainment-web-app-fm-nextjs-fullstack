@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { EntAppContext } from '../context/EntAppProvider'
 
 import classes from './MainContainer.module.css'
@@ -8,7 +8,11 @@ import PopularTvSeries from './PopularTvSeries'
 import SearchResults from './SearchResults'
 
 const MainContainer = () => {
-  const { searchedData, searchQuery } = useContext(EntAppContext)
+  const { searchedData, searchQuery, setSearchQuery } = useContext(EntAppContext)
+
+  useEffect(() => {
+    setSearchQuery([])
+  }, [])
 
   return (
     <div className={classes.MainContainer}>
