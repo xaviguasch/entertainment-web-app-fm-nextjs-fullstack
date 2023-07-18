@@ -12,7 +12,6 @@ const Search = () => {
   const { searchQuery, setSearchQuery } = useContext(EntAppContext)
 
   const tab = usePathname().substring(1)
-  console.log(tab)
   let placeholderText = ''
 
   if (tab === '') {

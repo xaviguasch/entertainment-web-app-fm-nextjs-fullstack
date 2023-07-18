@@ -118,8 +118,8 @@ const getItemData = async (itemId, category) => {
   }
 }
 
-const searchData = async (query: string, abortSignal?: AbortSignal) => {
-  const url = `${BASE_URL}/search/multi?query=${query}&include_adult=false&language=en-US&page=1&api_key=${TMDB_API_KEY}`
+const searchData = async (type: string, query: string, abortSignal?: AbortSignal) => {
+  const url = `${BASE_URL}/search/${type}?query=${query}&include_adult=false&language=en-US&page=1&api_key=${TMDB_API_KEY}`
 
   const searchResults = await fetchData(url, { abortSignal })
 

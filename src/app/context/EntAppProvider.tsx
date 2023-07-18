@@ -19,6 +19,21 @@ function EntAppProvider({ children }) {
     // concurrent API calls, but it's not clear it's working.
     // PENDING REVISION!
 
+    const controller = new AbortController()
+
+    const fetchData = async (type = 'multi') => {
+      try {
+        console.log('inside')
+        const data = await searchData(type, searchQuery, controller.signal)
+
+        console.log(data)
+
+        setSearchedData(data)
+      } catch (err) {
+        console.error(err)
+      }
+    }
+
     if (tab === 'bookmarks') {
       console.log('inside bookmarks!')
 
@@ -35,27 +50,22 @@ function EntAppProvider({ children }) {
       return
     }
 
+    if (tab === 'movies') {
+      setSearchedData([])
+
+      console.log('searching only movies')
+
+      fetchData('movie')
+
+      return
+    }
+
     if (searchQuery.length < 3) {
       // You don't make API calls when the search input has
       // less than 3 characters, and you also erase the results
       // whenever the input is blank again
       setSearchedData([])
       return
-    }
-
-    const controller = new AbortController()
-
-    const fetchData = async () => {
-      try {
-        console.log('inside')
-        const data = await searchData(searchQuery, controller.signal)
-
-        console.log(data)
-
-        setSearchedData(data)
-      } catch (err) {
-        console.error(err)
-      }
     }
 
     fetchData()

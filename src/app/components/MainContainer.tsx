@@ -1,3 +1,5 @@
+'use client'
+
 import React, { useContext, useEffect } from 'react'
 import { EntAppContext } from '../context/EntAppProvider'
 

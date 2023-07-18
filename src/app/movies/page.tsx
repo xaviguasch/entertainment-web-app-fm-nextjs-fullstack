@@ -1,8 +1,29 @@
-import React from 'react'
+'use client'
+
+import React, { useContext, useEffect } from 'react'
+import { EntAppContext } from '../context/EntAppProvider'
+
+import PopularMovies from '../components/PopularMovies'
+import SearchResults from '../components/SearchResults'
+
 import classes from './page.module.css'
 
 const MoviesPage = () => {
-  return <div className={classes.MoviesPage}>MoviesPage</div>
+  const { searchedData, searchQuery, setSearchQuery } = useContext(EntAppContext)
+
+  useEffect(() => {
+    setSearchQuery([])
+  }, [])
+
+  return (
+    <div className={classes.MoviesPage}>
+      {searchedData.length === 0 ? (
+        <PopularMovies />
+      ) : (
+        <SearchResults items={searchedData} searchQuery={searchQuery} />
+      )}
+    </div>
+  )
 }
 
 export default MoviesPage
