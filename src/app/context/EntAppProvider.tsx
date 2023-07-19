@@ -60,6 +60,16 @@ function EntAppProvider({ children }) {
       return
     }
 
+    if (tab === 'tv-series') {
+      setSearchedData([])
+
+      console.log('searching only tv series')
+
+      fetchData('tv')
+
+      return
+    }
+
     if (searchQuery.length < 3) {
       // You don't make API calls when the search input has
       // less than 3 characters, and you also erase the results
