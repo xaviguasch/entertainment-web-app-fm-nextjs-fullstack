@@ -52,7 +52,7 @@ const Item = ({ data }) => {
   }
 
   return (
-    <div className={classes.Item}>
+    <div className={classes.Item} onClick={handleClick}>
       <div className={classes.ImgContainer}>
         <img
           src={backgroundImg}
