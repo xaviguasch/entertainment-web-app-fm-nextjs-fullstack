@@ -5,6 +5,7 @@ import { EntAppContext } from '../context/EntAppProvider'
 
 import Item from '../components/Item'
 import SearchResults from '../components/SearchResults'
+import Search from '../components/Search'
 
 import { getItemData } from '../hooks/tmdb'
 
@@ -25,6 +26,7 @@ const Bookmarks = () => {
     <div className={classes.Bookmarks}>
       {searchedData.length === 0 ? (
         <>
+          <Search />
           <div className={classes.group}>
             <h2 className='section-title'>Bookmarked Movies</h2>
 
@@ -59,7 +61,10 @@ const Bookmarks = () => {
           </div>
         </>
       ) : (
-        <SearchResults items={searchedData} searchQuery={searchQuery} />
+        <>
+          <Search />
+          <SearchResults items={searchedData} searchQuery={searchQuery} />
+        </>
       )}
     </div>
   )

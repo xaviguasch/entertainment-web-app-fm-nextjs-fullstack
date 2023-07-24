@@ -5,6 +5,7 @@ import { EntAppContext } from '../context/EntAppProvider'
 
 import PopularMovies from '../components/PopularMovies'
 import SearchResults from '../components/SearchResults'
+import Search from '../components/Search'
 
 import classes from './page.module.css'
 
@@ -18,9 +19,15 @@ const MoviesPage = () => {
   return (
     <div className={classes.MoviesPage}>
       {searchedData.length === 0 ? (
-        <PopularMovies />
+        <>
+          <Search />
+          <PopularMovies />
+        </>
       ) : (
-        <SearchResults items={searchedData} searchQuery={searchQuery} />
+        <>
+          <Search />
+          <SearchResults items={searchedData} searchQuery={searchQuery} />
+        </>
       )}
     </div>
   )

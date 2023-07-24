@@ -8,6 +8,7 @@ import Trending from './Trending'
 import PopularMovies from './PopularMovies'
 import PopularTvSeries from './PopularTvSeries'
 import SearchResults from './SearchResults'
+import Search from './Search'
 
 const MainContainer = () => {
   const { searchedData, searchQuery, setSearchQuery } = useContext(EntAppContext)
@@ -20,12 +21,16 @@ const MainContainer = () => {
     <div className={classes.MainContainer}>
       {searchedData.length === 0 ? (
         <>
+          <Search />
           <Trending />
           <PopularMovies />
           <PopularTvSeries />
         </>
       ) : (
-        <SearchResults items={searchedData} searchQuery={searchQuery} />
+        <>
+          <Search />
+          <SearchResults items={searchedData} searchQuery={searchQuery} />
+        </>
       )}
     </div>
   )

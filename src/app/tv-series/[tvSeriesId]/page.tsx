@@ -10,7 +10,7 @@ const TVSeriesInfo = ({ params }) => {
   const { data, isLoading } = useFetchItemData(tvSeriesId, 'tvSeries')
 
   return (
-    <div className={classes.MovieInfo}>
+    <div className={classes.TVSerieInfo}>
       {isLoading && <h2>Loading...</h2>}
 
       <h2>TV Series Info</h2>
