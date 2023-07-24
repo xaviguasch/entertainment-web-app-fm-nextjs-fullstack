@@ -5,6 +5,7 @@ const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
 
 const fetchData = async (url: string) => {
   const response = await fetch(url)
+
   if (!response.ok) {
     throw new Error(`Failed to fetch data: ${response.status}`)
   }
@@ -14,16 +15,18 @@ const fetchData = async (url: string) => {
 }
 
 const refineDataPoints = (data) => {
-  return data.map((item) => ({
-    id: item.id,
-    category: item.title ? 'Movie' : 'TV Series',
-    title: item.title || item.name,
-    backgroundImg: `${BASE_IMAGE_URL}/${BACKDROP_IMG_SIZE}/${item.backdrop_path}?api_key=${TMDB_API_KEY}`,
-    year: item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4) || 'N/A',
-    rating: item.adult ? 'Explicit' : 'Family',
-    genreIds: item.genre_ids,
-    bookmarked: false,
-  }))
+  return data
+    .filter((media) => media.media_type === 'movie' || media.media_type === 'tv')
+    .map((item) => ({
+      id: item.id,
+      category: item.title ? 'Movie' : 'TV Series',
+      title: item.title || item.name,
+      backgroundImg: `${BASE_IMAGE_URL}/${BACKDROP_IMG_SIZE}/${item.backdrop_path}?api_key=${TMDB_API_KEY}`,
+      year: item.release_date?.slice(0, 4) || item.first_air_date?.slice(0, 4) || 'N/A',
+      rating: item.adult ? 'Explicit' : 'Family',
+      genreIds: item.genre_ids,
+      bookmarked: false,
+    }))
 }
 
 const getTrendingCat = async (category) => {
