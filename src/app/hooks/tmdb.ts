@@ -11,12 +11,16 @@ const fetchData = async (url: string) => {
   }
   const result = await response.json()
 
+  console.log(result)
+
   return result
 }
 
 const refineDataPoints = (data) => {
+  console.log(data)
+
   return data
-    .filter((media) => media.media_type === 'movie' || media.media_type === 'tv')
+    .filter((media) => media.title || media.media_type === 'tv')
     .map((item) => ({
       id: item.id,
       category: item.title ? 'Movie' : 'TV Series',
@@ -42,12 +46,11 @@ const getTrendingCat = async (category) => {
 
 const getPopular = async (category) => {
   const url = `${BASE_URL}/${category}/popular?language=en-US&api_key=${TMDB_API_KEY}`
-
-  console.log(url)
   const data = await fetchData(url)
 
   // we extract and reestructure the correct data points
   const refinedData = refineDataPoints(data.results)
+  console.log(refinedData)
   return refinedData
 }
 

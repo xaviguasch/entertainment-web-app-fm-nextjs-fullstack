@@ -9,6 +9,7 @@ import { usePathname } from 'next/navigation'
 
 const PopularMovies = () => {
   const { data, isLoading } = useFetchPopular('movie')
+  console.log(data)
 
   const tab = usePathname().substring(1)
   let title = ''
