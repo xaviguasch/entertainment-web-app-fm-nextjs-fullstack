@@ -94,6 +94,8 @@ const getTvData = async (tvSeriesId) => {
   const generalTvData = await fetchData(url)
   console.log(generalTvData)
 
+  const posterUrl = `${BASE_IMAGE_URL}/${BACKDROP_IMG_SIZE}${generalTvData.poster_path}?api_key=${TMDB_API_KEY}`
+
   const creditsUrl = `${BASE_URL}/tv/${tvSeriesId}/credits?api_key=${TMDB_API_KEY}`
 
   const tvCredits = await fetchData(creditsUrl)
@@ -102,15 +104,17 @@ const getTvData = async (tvSeriesId) => {
   const tvSeriesInfo = {
     title: generalTvData.name,
     tagline: generalTvData.tagline,
+    runtime: generalTvData.episode_run_time[0],
     votes: generalTvData.vote_average,
     year: generalTvData.first_air_date?.slice(0, 4),
     language: generalTvData.original_language,
     genres: generalTvData.genres.map((genre) => genre.name),
     synopsis: generalTvData.overview,
     cast: tvCredits.cast.slice(0, 10),
-    poster: tvCredits.poster_path,
+    poster: posterUrl,
   }
 
+  console.log(tvSeriesInfo)
   return tvSeriesInfo
 }
 

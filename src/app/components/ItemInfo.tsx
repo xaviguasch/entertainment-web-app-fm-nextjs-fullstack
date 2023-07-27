@@ -28,7 +28,7 @@ const ItemInfo = ({ data }) => {
         <div className={classes.secondaryInfo}>
           <div className={classes.pair}>
             <span className='info-tag'>Length</span>
-            <span className='info-data'>{data.runtime}</span>
+            <span className='info-data'>{data.runtime + 'min' || 'N/A'}</span>
           </div>
           <div className={classes.pair}>
             <span className='info-tag'>Year</span>
