@@ -42,6 +42,8 @@ const Item = ({ data }) => {
   // of just the ID
 
   const handleBookmark = (e) => {
+    e.stopPropagation()
+
     if (isBookmarked) {
       setBookmarks((prev) => {
         return prev.filter((bm) => bm.id !== data.id)
