@@ -11,13 +11,13 @@ const fetchData = async (url: string) => {
   }
   const result = await response.json()
 
-  console.log(result)
+  // console.log(result)
 
   return result
 }
 
 const refineDataPoints = (data) => {
-  console.log(data)
+  // console.log(data)
 
   return data
     .filter((media) => media.title || media.media_type === 'tv')
@@ -34,7 +34,7 @@ const refineDataPoints = (data) => {
 }
 
 const getTrendingCat = async (category) => {
-  console.log(category)
+  // console.log(category)
   const url = `${BASE_URL}/trending/${category}/day?api_key=${TMDB_API_KEY}`
 
   const data = await fetchData(url)
@@ -50,7 +50,7 @@ const getPopular = async (category) => {
 
   // we extract and reestructure the correct data points
   const refinedData = refineDataPoints(data.results)
-  console.log(refinedData)
+  // console.log(refinedData)
   return refinedData
 }
 
@@ -58,12 +58,12 @@ const getMovieData = async (movieId) => {
   const url = `${BASE_URL}/movie/${movieId}?api_key=${TMDB_API_KEY}`
 
   const generalMovieData = await fetchData(url)
-  console.log(generalMovieData)
+  // console.log(generalMovieData)
 
   const creditsUrl = `${BASE_URL}/movie/${movieId}/credits?api_key=${TMDB_API_KEY}`
 
   const movieCredits = await fetchData(creditsUrl)
-  console.log(movieCredits)
+  // console.log(movieCredits)
 
   const director = movieCredits.crew.find(
     (person) => person.job.toLowerCase() === 'director'
@@ -92,14 +92,14 @@ const getTvData = async (tvSeriesId) => {
   const url = `${BASE_URL}/tv/${tvSeriesId}?api_key=${TMDB_API_KEY}`
 
   const generalTvData = await fetchData(url)
-  console.log(generalTvData)
+  // console.log(generalTvData)
 
   const posterUrl = `${BASE_IMAGE_URL}/${BACKDROP_IMG_SIZE}${generalTvData.poster_path}?api_key=${TMDB_API_KEY}`
 
   const creditsUrl = `${BASE_URL}/tv/${tvSeriesId}/credits?api_key=${TMDB_API_KEY}`
 
   const tvCredits = await fetchData(creditsUrl)
-  console.log(tvCredits)
+  // console.log(tvCredits)
 
   const tvSeriesInfo = {
     title: generalTvData.name,
@@ -114,7 +114,7 @@ const getTvData = async (tvSeriesId) => {
     poster: posterUrl,
   }
 
-  console.log(tvSeriesInfo)
+  // console.log(tvSeriesInfo)
   return tvSeriesInfo
 }
 
@@ -133,11 +133,11 @@ const searchData = async (type: string, query: string, abortSignal?: AbortSignal
 
   const searchResults = await fetchData(url, { abortSignal })
 
-  console.log(searchResults)
+  // console.log(searchResults)
 
   // we extract and reestructure the correct data points
   const refinedData = refineDataPoints(searchResults.results)
-  console.log(refinedData)
+  // console.log(refinedData)
   return refinedData
 }
 

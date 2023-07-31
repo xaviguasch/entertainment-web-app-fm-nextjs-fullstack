@@ -10,7 +10,7 @@ const useFetchTrending = (category) => {
       try {
         const fetchedData = await getTrendingCat(category)
 
-        console.log(fetchedData)
+        // console.log(fetchedData)
 
         setData(fetchedData)
       } catch (error) {

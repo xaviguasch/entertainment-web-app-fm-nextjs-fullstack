@@ -14,8 +14,6 @@ const TVSeriesInfo = ({ params }) => {
 
   const { data, isLoading } = useFetchItemData(tvSeriesId, 'tvSeries')
 
-  console.log(data)
-
   return (
     <div className={classes.TVSerieInfo}>
       <button type='button' onClick={() => router.push('/')}>

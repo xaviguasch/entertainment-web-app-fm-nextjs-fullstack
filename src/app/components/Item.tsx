@@ -22,8 +22,8 @@ const Item = ({ data }) => {
 
   const { title, category, year, rating, backgroundImg, id } = data
 
-  console.log(bookmarks, id)
-  console.log(bookmarks[0] === id)
+  // console.log(bookmarks, id)
+  // console.log(bookmarks[0] === id)
   const router = useRouter()
 
   const isBookmarked = bookmarks.some((bm) => bm.id === data.id)
