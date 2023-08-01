@@ -8,7 +8,7 @@ const SearchResults = ({ items, searchQuery }) => {
   return (
     <div className={classes.SearchResults}>
       <h2 className='section-title'>
-        Found {items.length} results for "{searchQuery}"
+        Found {items.length} results for {searchQuery}
       </h2>
 
       <div className={classes.resultCols}>
