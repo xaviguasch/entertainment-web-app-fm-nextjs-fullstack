@@ -20,7 +20,9 @@ const Item = ({ data }) => {
   // now in "handleClick"
   const { bookmarks, setBookmarks } = useContext(EntAppContext)
 
-  const { title, category, year, rating, backgroundImg, id } = data
+  console.log(data)
+
+  const { title, media_type, release_date, rating, backdrop_path, id } = data
 
   // console.log(bookmarks, id)
   // console.log(bookmarks[0] === id)
@@ -29,11 +31,11 @@ const Item = ({ data }) => {
   const isBookmarked = bookmarks.some((bm) => bm.id === data.id)
 
   const handleClick = () => {
-    if (category === 'Movie') {
+    if (media_type === 'Movie') {
       router.push(`/movies/${id}`)
     }
 
-    if (category === 'TV Series') {
+    if (media_type === 'TV Series') {
       router.push(`/tv-series/${id}`)
     }
   }
@@ -57,7 +59,7 @@ const Item = ({ data }) => {
     <div className={classes.Item} onClick={handleClick}>
       <div className={classes.ImgContainer}>
         <img
-          src={backgroundImg}
+          src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
           alt={title}
           onError={(e) => {
             e.target.onError = null
@@ -73,13 +75,13 @@ const Item = ({ data }) => {
       </div>
 
       <div className={classes.nuggets}>
-        <span className='info'>{year}</span>
+        <span className='info'>{release_date.slice(0, 4)}</span>
         <span className={classes.dot}>&#8226;</span>
 
-        {category === 'Movie' && <MovieCatIcon />}
-        {category === 'TV Series' && <TvCatIcon />}
+        {media_type === 'Movie' && <MovieCatIcon />}
+        {media_type === 'TV Series' && <TvCatIcon />}
 
-        <span className='info'>{category}</span>
+        <span className='info'>{media_type}</span>
         <span className={classes.dot}>&#8226;</span>
 
         <span className='info'>{rating}</span>
