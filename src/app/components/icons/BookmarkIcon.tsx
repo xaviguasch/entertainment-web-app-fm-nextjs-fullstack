@@ -7,6 +7,7 @@ function BookmarkIcon({ classNameProp }) {
       width='17'
       height='20'
       transform={classNameProp === 'mini' ? 'scale(0.7)' : 'scale(1.0)'}
+      className={`${classNameProp} icon-nav`}
     >
       <path
         fill={classNameProp === 'mini' ? '#FFF' : '#5A698F'}

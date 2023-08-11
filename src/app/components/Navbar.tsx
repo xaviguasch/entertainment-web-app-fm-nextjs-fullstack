@@ -37,7 +37,7 @@ const Navbar = () => {
         </Link>
         <Link href='/tv-series'>
           <TvSeriesIcon
-            classNameProp={`${currentRoute === '/tvseries' ? 'activeIcon' : null}`}
+            classNameProp={`${currentRoute === '/tv-series' ? 'activeIcon' : null}`}
           />
         </Link>
 

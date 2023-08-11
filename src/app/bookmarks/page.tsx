@@ -22,10 +22,6 @@ const Bookmarks = () => {
     setSearchQuery('')
   }, [])
 
-  if (!bookmarks) {
-    return null
-  }
-
   return (
     <div className={classes.Bookmarks}>
       {searchedData.length === 0 ? (

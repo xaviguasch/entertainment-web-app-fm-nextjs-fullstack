@@ -9,7 +9,7 @@ import Search from '../components/Search'
 
 import classes from './page.module.css'
 
-const MoviesPage = () => {
+const MoviesPage = ({ params }) => {
   const { searchedData, searchQuery, setSearchQuery } = useContext(EntAppContext)
 
   useEffect(() => {
