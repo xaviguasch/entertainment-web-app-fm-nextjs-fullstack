@@ -2,8 +2,11 @@
   position: relative;
 }
 
-.ImgContainer img {
+.ImgContainer {
   border-radius: 8px;
+
+  width: 100%;
+  height: 110px;
 }
 
 .nuggets {

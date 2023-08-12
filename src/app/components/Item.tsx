@@ -1,7 +1,11 @@
 'use client'
 
+import { TileProps } from '../types/Types.types'
+
 import React, { useContext, useEffect } from 'react'
 import { EntAppContext } from '../context/EntAppProvider'
+
+import Image from 'next/image'
 
 import { useRouter } from 'next/navigation'
 
@@ -15,27 +19,25 @@ import EmptyBookmarkIcon from './icons/EmpytBookmarkIcon'
 // replace fallback image icon
 const fallbackSrc = 'https://img.icons8.com/?size=512&id=Lm8LDO41sshR&format=png'
 
-const Item = ({ data }) => {
+const Item = (tileObj: TileProps) => {
   // PENDING: re-do the click on picture functionalitiy
   // now in "handleClick"
   const { bookmarks, setBookmarks } = useContext(EntAppContext)
-
-  console.log(data)
-
-  const { title, media_type, release_date, rating, backdrop_path, id } = data
 
   // console.log(bookmarks, id)
   // console.log(bookmarks[0] === id)
   const router = useRouter()
 
-  const isBookmarked = bookmarks.some((bm) => bm.id === data.id)
+  const { title, image, year, rating, category, id } = tileObj
+
+  const isBookmarked = bookmarks.some((bm) => bm.id === id)
 
   const handleClick = () => {
-    if (media_type === 'Movie') {
+    if (category === 'movie') {
       router.push(`/movies/${id}`)
     }
 
-    if (media_type === 'TV Series') {
+    if (category === 'tv') {
       router.push(`/tv-series/${id}`)
     }
   }
@@ -48,25 +50,22 @@ const Item = ({ data }) => {
 
     if (isBookmarked) {
       setBookmarks((prev) => {
-        return prev.filter((bm) => bm.id !== data.id)
+        return prev.filter((bm) => bm.id !== id)
       })
     } else {
-      setBookmarks((prev) => [...prev, data])
+      setBookmarks((prev) => [...prev, tileObj])
     }
   }
 
   return (
     <div className={classes.Item} onClick={handleClick}>
-      <div className={classes.ImgContainer}>
-        <img
-          src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
-          alt={title}
-          onError={(e) => {
-            e.target.onError = null
-            e.target.src = fallbackSrc
-          }}
-        />
-      </div>
+      <div
+        className={classes.ImgContainer}
+        style={{
+          backgroundImage: `url(https://image.tmdb.org/t/p/original${image})`,
+          backgroundSize: 'cover',
+        }}
+      ></div>
 
       <div className={classes.bookmarkWrapper} onClick={handleBookmark}>
         <div className={classes.bmInnerWrapper}>
@@ -75,16 +74,16 @@ const Item = ({ data }) => {
       </div>
 
       <div className={classes.nuggets}>
-        <span className='info'>{release_date.slice(0, 4)}</span>
+        <span className='info'>{year}</span>
         <span className={classes.dot}>&#8226;</span>
 
-        {media_type === 'Movie' && <MovieCatIcon />}
-        {media_type === 'TV Series' && <TvCatIcon />}
+        {category === 'movie' && <MovieCatIcon />}
+        {category === 'tv' && <TvCatIcon />}
 
-        <span className='info'>{media_type}</span>
+        <span className='info'>{category === 'movie' ? 'Movie' : 'TV Series'}</span>
         <span className={classes.dot}>&#8226;</span>
 
-        <span className='info'>{rating}</span>
+        <span className='info'>{Math.round(10 * rating) / 10}</span>
       </div>
       <h3 className='title-tile-item'>{title}</h3>
     </div>

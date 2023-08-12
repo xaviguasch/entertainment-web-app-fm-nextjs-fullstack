@@ -1,3 +1,12 @@
+export type TileProps = {
+  year: number
+  category: 'movie' | 'tv'
+  rating: number
+  title: string
+  image?: string
+  id: number
+}
+
 export type MovieProps = {
   id: number
   title: string

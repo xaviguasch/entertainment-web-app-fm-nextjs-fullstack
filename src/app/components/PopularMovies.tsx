@@ -26,8 +26,18 @@ export default async function PopularMovies() {
 
       <div className={classes.popularCols}>
         {movies
-          .map((item: object) => {
-            return <Item key={item.id} data={...item} />
+          .map((item: MovieProps) => {
+            return (
+              <Item
+                key={item.id}
+                id={item.id}
+                title={item.title}
+                image={item.backdrop_path}
+                year={+item.release_date.split('-')[0]}
+                rating={+item.vote_average}
+                category='movie'
+              />
+            )
           })
           .slice(0, 12)}
       </div>
