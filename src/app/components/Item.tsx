@@ -1,7 +1,5 @@
 'use client'
 
-import { TileProps } from '../types/Types.types'
-
 import React, { useContext, useEffect } from 'react'
 import { EntAppContext } from '../context/EntAppProvider'
 
@@ -15,6 +13,8 @@ import MovieCatIcon from './icons/MovieCatIcon'
 import TvCatIcon from './icons/TvCatIcon'
 import BookmarkIcon from './icons/BookmarkIcon'
 import EmptyBookmarkIcon from './icons/EmpytBookmarkIcon'
+
+import { MovieProps, TVShowProps, TileProps } from '../types/Types.types'
 
 const Item = (tileObj: TileProps) => {
   // PENDING: re-do the click on picture functionalitiy
@@ -44,11 +44,11 @@ const Item = (tileObj: TileProps) => {
     e.stopPropagation()
 
     if (isBookmarked) {
-      setBookmarks((prev) => {
+      setBookmarks((prev: TileProps[]) => {
         return prev.filter((bm) => bm.id !== id)
       })
     } else {
-      setBookmarks((prev) => [...prev, tileObj])
+      setBookmarks((prev: TileProps[]) => [...prev, tileObj])
     }
   }
 
