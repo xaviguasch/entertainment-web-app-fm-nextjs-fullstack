@@ -27,7 +27,9 @@ export async function getMovies() {
 }
 
 export async function getShows() {
-  const res = await fetch(`${BASE_URL}/trending/tv/day?language=en-US`, options)
+  const res = await fetch(
+    `${BASE_URL}/trending/tv/day?language=en-US&api_key=${TMDB_API_KEY}`
+  )
 
   const tvShows = await res.json()
   const showsArr: TVShowProps[] = tvShows.results

@@ -9,7 +9,7 @@ export default async function Home() {
       <MainContainer>
         <Trending />
         <PopularMovies />
-        {/* <PopularTvSeries /> */}
+        <PopularTvSeries />
       </MainContainer>
     </>
   )

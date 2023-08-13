@@ -16,16 +16,11 @@ import TvCatIcon from './icons/TvCatIcon'
 import BookmarkIcon from './icons/BookmarkIcon'
 import EmptyBookmarkIcon from './icons/EmpytBookmarkIcon'
 
-// replace fallback image icon
-const fallbackSrc = 'https://img.icons8.com/?size=512&id=Lm8LDO41sshR&format=png'
-
 const Item = (tileObj: TileProps) => {
   // PENDING: re-do the click on picture functionalitiy
   // now in "handleClick"
   const { bookmarks, setBookmarks } = useContext(EntAppContext)
 
-  // console.log(bookmarks, id)
-  // console.log(bookmarks[0] === id)
   const router = useRouter()
 
   const { title, image, year, rating, category, id } = tileObj

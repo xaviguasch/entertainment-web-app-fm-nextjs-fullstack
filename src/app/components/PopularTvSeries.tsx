@@ -1,28 +1,35 @@
-'use client'
+import React from 'react'
 
-import React, { useState } from 'react'
 import classes from './PopularTvSeries.module.css'
-import useFetchTrending from '../hooks/useFetchTrending'
+import { TVShowProps } from '../types/Types.types'
+import { getShows } from '../utils/fetchData'
+
 import Item from './Item'
 
-const PopularTvSeries = () => {
-  const { data, isLoading } = useFetchTrending('tv')
+export default async function PopularTvSeries() {
+  const series: TVShowProps[] = await getShows()
 
   return (
     <div className={classes.PopularTvSeries}>
       <h2 className='section-title'>Popular TV Series</h2>
-      {isLoading && <h2>Loading...</h2>}
 
       <div className={classes.popularCols}>
-        {data.length > 0 &&
-          data
-            .map((item: object) => {
-              return <Item key={item.id} data={...item} />
-            })
-            .slice(0, 12)}
+        {series
+          .map((item: TVShowProps) => {
+            return (
+              <Item
+                key={item.id}
+                id={item.id}
+                title={item.name}
+                image={item.backdrop_path}
+                year={+item.first_air_date.split('-')[0]}
+                rating={+item.vote_average}
+                category='tv'
+              />
+            )
+          })
+          .slice(0, 12)}
       </div>
     </div>
   )
 }
-
-export default PopularTvSeries
