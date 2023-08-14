@@ -42,4 +42,5 @@ export type MovieDetailProps = {
   spoken_languages: { english_name: string; iso_639_1: string; name: string }[]
   genres: { id: number; name: string }[]
   overview: string
+  poster_path: string
 }

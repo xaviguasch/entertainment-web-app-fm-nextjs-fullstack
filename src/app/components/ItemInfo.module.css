@@ -4,10 +4,10 @@
 .imgContainer {
   display: flex;
   justify-content: center;
-}
-
-.poster {
   max-width: 240px;
+  margin: 0 auto;
+  background-size: cover;
+  height: 360px;
   border-radius: 8px;
 }
 
