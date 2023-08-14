@@ -1,6 +1,8 @@
 import React from 'react'
 import classes from './ItemInfo.module.css'
 
+import { MovieProps, TVShowProps } from '../types/Types.types'
+
 const ItemInfo = ({ data }) => {
   return (
     <div className={classes.itemInfo}>

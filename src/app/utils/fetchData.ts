@@ -36,3 +36,15 @@ export async function getShows() {
 
   return showsArr
 }
+
+export async function getMovieDetails(id) {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/movie/${id}?language=en-US&api_key=${TMDB_API_KEY}`
+    )
+    const details = await res.json()
+    return details
+  } catch (error) {
+    console.error(error)
+  }
+}

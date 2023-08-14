@@ -190,6 +190,14 @@ ul {
   transform: translateY(10%);
 }
 
+.icon-nav.mini {
+  transform: scale(0.7);
+}
+
+.icon-nav.mini > path {
+  fill: var(--clr-white) !important;
+}
+
 .icon-nav:hover > path,
 .icon-nav:active > path {
   fill: var(--clr-soft-red);

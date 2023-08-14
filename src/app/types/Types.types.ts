@@ -31,3 +31,15 @@ export type TVShowProps = {
   poster_path?: string
   episode_run_time?: number[]
 }
+
+export type MovieDetailProps = {
+  id: number
+  title: string
+  tagline?: string
+  vote_average: number
+  runtime: number
+  release_date: string
+  spoken_languages: { english_name: string; iso_639_1: string; name: string }[]
+  genres: { id: number; name: string }[]
+  overview: string
+}
