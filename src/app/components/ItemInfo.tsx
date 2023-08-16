@@ -39,7 +39,7 @@ const ItemInfo = ({ movieDetails }: MDProps) => {
           <h2 className='item-title'>{title}</h2>
           <div className={classes.director}>
             <span className='director-credits'>Directed by</span>
-            {/* <span className='director-name'>{data.director}</span> */}
+            <span className='director-name'>{director}</span>
           </div>
           <span className='tagline'>{tagline}</span>
           <span className='votes'>{vote_average?.toFixed(1)}</span>
