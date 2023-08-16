@@ -5,7 +5,11 @@ import Image from 'next/image'
 
 import { MovieProps, TVShowProps, MovieDetailProps } from '../types/Types.types'
 
-const ItemInfo = ({ movieDetails }: MovieDetailProps) => {
+interface MDProps {
+  movieDetails: MovieDetailProps
+}
+
+const ItemInfo = ({ movieDetails }: MDProps) => {
   const {
     id,
     title,
@@ -20,8 +24,6 @@ const ItemInfo = ({ movieDetails }: MovieDetailProps) => {
     cast,
     director,
   } = movieDetails
-
-  console.log(movieDetails)
 
   return (
     <div className={classes.itemInfo}>
@@ -79,7 +81,7 @@ const ItemInfo = ({ movieDetails }: MovieDetailProps) => {
         <div className={classes.tertiaryInfo}>
           <h3 className='section-title'>Cast</h3>
           <ul className={classes.proList}>
-            {movieDetails.cast.map((actor) => {
+            {cast.map((actor) => {
               return (
                 <li key={actor.id} className='info-pill'>
                   {actor}
