@@ -33,14 +33,16 @@ export type TVShowProps = {
 }
 
 export type MovieDetailProps = {
-  id: number
+  id: string
   title: string
   tagline?: string
   vote_average: number
   runtime: number
   release_date: string
-  spoken_languages: { english_name: string; iso_639_1: string; name: string }[]
-  genres: { id: number; name: string }[]
+  spoken_languages: string
+  genres: string[]
   overview: string
   poster_path: string
+  director: string
+  cast: string[]
 }

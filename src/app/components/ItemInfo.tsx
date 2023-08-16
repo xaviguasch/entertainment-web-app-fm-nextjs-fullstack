@@ -1,9 +1,11 @@
 import React from 'react'
 import classes from './ItemInfo.module.css'
 
+import Image from 'next/image'
+
 import { MovieProps, TVShowProps, MovieDetailProps } from '../types/Types.types'
 
-const ItemInfo = (movieDetails: MovieDetailProps) => {
+const ItemInfo = ({ movieDetails }: MovieDetailProps) => {
   const {
     id,
     title,
@@ -15,7 +17,11 @@ const ItemInfo = (movieDetails: MovieDetailProps) => {
     genres,
     overview,
     poster_path,
+    cast,
+    director,
   } = movieDetails
+
+  console.log(movieDetails)
 
   return (
     <div className={classes.itemInfo}>
@@ -24,14 +30,7 @@ const ItemInfo = (movieDetails: MovieDetailProps) => {
         style={{
           backgroundImage: `url(https://image.tmdb.org/t/p/original${poster_path})`,
         }}
-      >
-        {/* <Image
-              href={data.poster}
-              fill={true}
-              alt={data.title}
-              className={classes.poster}
-            /> */}
-      </div>
+      ></div>
 
       <div className={classes.infoCol}>
         <div className={classes.mainInfo}>
@@ -55,20 +54,20 @@ const ItemInfo = (movieDetails: MovieDetailProps) => {
           </div>
           <div className={classes.pair}>
             <span className='info-tag'>Language</span>
-            {/* <span className='info-data'>{spoken_languages?.toUpperCase()}</span> */}
+            <span className='info-data'>{spoken_languages?.toUpperCase()}</span>
           </div>
         </div>
 
         <div className={classes.tertiaryInfo}>
           <h3 className='section-title'>Genres</h3>
           <ul className={classes.proList}>
-            {/* {genres.map((genre) => {
+            {genres.map((genre) => {
               return (
                 <li key={genre} className='info-pill'>
                   {genre}
                 </li>
               )
-            })} */}
+            })}
           </ul>
         </div>
 
@@ -80,13 +79,13 @@ const ItemInfo = (movieDetails: MovieDetailProps) => {
         <div className={classes.tertiaryInfo}>
           <h3 className='section-title'>Cast</h3>
           <ul className={classes.proList}>
-            {/* {data.cast.map((actor) => {
+            {movieDetails.cast.map((actor) => {
               return (
                 <li key={actor.id} className='info-pill'>
-                  {actor.name}
+                  {actor}
                 </li>
               )
-            })} */}
+            })}
           </ul>
         </div>
       </div>

@@ -3,8 +3,6 @@
 import React from 'react'
 
 function BookmarkIcon({ classNameProp }) {
-  console.log(classNameProp)
-  console.log('hollla')
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
