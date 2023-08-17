@@ -83,7 +83,7 @@ const ItemInfo = ({ movieDetails }: MDProps) => {
           <ul className={classes.proList}>
             {cast.map((actor) => {
               return (
-                <li key={actor.id} className='info-pill'>
+                <li key={actor} className='info-pill'>
                   {actor}
                 </li>
               )
