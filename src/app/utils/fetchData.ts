@@ -21,7 +21,6 @@ export async function getMovies() {
   const movies = await res.json()
   const moviesArr: MovieProps[] = movies.results
 
-  console.log('heeeeeeeeeeeeeeee')
   console.log(moviesArr)
   return moviesArr
 }
@@ -73,4 +72,16 @@ export async function getMovieDetails(id) {
   } catch (error) {
     console.error(error)
   }
+}
+
+export async function searchData(type: string, query: string) {
+  const res = await fetch(
+    `${BASE_URL}/search/${type}?query=${query}&include_adult=false&language=en-US&page=1&api_key=${TMDB_API_KEY}`
+  )
+
+  const titles = await res.json()
+  const titlesArr: MovieProps[] = titles.results
+
+  console.log(titlesArr)
+  return titlesArr
 }

@@ -1,11 +1,13 @@
 'use client'
 
 import { createContext, useContext, useState, useEffect } from 'react'
-import { getTrendingCat, searchData } from '../hooks/tmdb'
+import { getTrendingCat } from '../hooks/tmdb'
 
 import { usePathname } from 'next/navigation'
 
 export const EntAppContext = createContext()
+
+import { searchData } from '../utils/fetchData'
 
 function EntAppProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('')

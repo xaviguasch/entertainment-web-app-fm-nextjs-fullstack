@@ -1,32 +1,39 @@
-'use client'
+import React from 'react'
 
-import React, { useContext, useEffect } from 'react'
+// import React, { useContext, useEffect } from 'react'
+// import { EntAppContext } from '../context/EntAppProvider'
+
 import classes from './page.module.css'
-import { EntAppContext } from '../context/EntAppProvider'
 import PopularTvSeries from '../components/PopularTvSeries'
-import SearchResults from '../components/SearchResults'
-import Search from '../components/Search'
+// import SearchResults from '../components/SearchResults'
+// import Search from '../components/Search'
 
-const SeriesPage = () => {
-  const { searchedData, searchQuery, setSearchQuery } = useContext(EntAppContext)
+import MainContainer from '../components/MainContainer'
 
-  useEffect(() => {
-    setSearchQuery([])
-  }, [])
+const SeriesPage = ({ params }) => {
+  // const { searchedData, searchQuery, setSearchQuery } = useContext(EntAppContext)
+
+  // useEffect(() => {
+  //   setSearchQuery([])
+  // }, [])
 
   return (
     <div className={classes.SeriesPage}>
-      {searchedData.length === 0 ? (
-        <>
-          <Search />
-          <PopularTvSeries />
-        </>
-      ) : (
-        <>
-          <Search />
-          <SearchResults items={searchedData} searchQuery={searchQuery} />
-        </>
-      )}
+      <MainContainer>
+        {/* {searchedData.length === 0 ? (
+          <>
+            <Search />
+            <PopularTvSeries />
+          </>
+        ) : (
+          <>
+            <Search />
+            <SearchResults items={searchedData} searchQuery={searchQuery} />
+          </>
+        )} */}
+
+        <PopularTvSeries />
+      </MainContainer>
     </div>
   )
 }

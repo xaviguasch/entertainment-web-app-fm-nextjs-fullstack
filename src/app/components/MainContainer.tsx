@@ -15,6 +15,8 @@ const MainContainer = ({ children }: { children: React.ReactNode }) => {
     setSearchQuery([])
   }, [])
 
+  console.log(searchedData.length)
+
   return (
     <div className={classes.MainContainer}>
       {searchedData.length === 0 ? (
