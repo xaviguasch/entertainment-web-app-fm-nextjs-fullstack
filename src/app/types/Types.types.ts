@@ -32,7 +32,7 @@ export type TVShowProps = {
   episode_run_time?: number[]
 }
 
-export type MovieDetailProps = {
+export type ContentDetailProps = {
   id: string
   title: string
   tagline?: string

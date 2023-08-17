@@ -3,10 +3,10 @@ import classes from './ItemInfo.module.css'
 
 import Image from 'next/image'
 
-import { MovieProps, TVShowProps, MovieDetailProps } from '../types/Types.types'
+import { MovieProps, TVShowProps, ContentDetailProps } from '../types/Types.types'
 
 interface MDProps {
-  movieDetails: MovieDetailProps
+  movieDetails: ContentDetailProps
 }
 
 const ItemInfo = ({ movieDetails }: MDProps) => {

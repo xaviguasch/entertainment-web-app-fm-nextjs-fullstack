@@ -3,20 +3,29 @@ import React from 'react'
 import Link from 'next/link'
 
 import classes from './page.module.css'
-import useFetchItemData from '@/app/hooks/useFetchItemData'
 import ItemInfo from '@/app/components/ItemInfo'
 import { getMovieDetails } from '@/app/utils/fetchData'
 
-import { MovieDetailProps } from '@/app/types/Types.types'
+import { ContentDetailProps } from '@/app/types/Types.types'
 
-export default async function MovieInfo({ params }) {
+import ArrowLeftIcon from '@/app/components/icons/ArrowLeft'
+
+interface MovieInfoProps {
+  params: { movieId: string }
+}
+
+export default async function MovieInfo({ params }: MovieInfoProps) {
   const { movieId } = params
 
-  const movDet: MovieDetailProps = await getMovieDetails(movieId)
+  const movDet: ContentDetailProps = await getMovieDetails(movieId)
 
   return (
     <div className={classes.MovieInfo}>
-      <Link href='/'>Go to homepage</Link>
+      <div className={classes.iconLinkContainer}>
+        <Link href='/'>
+          <ArrowLeftIcon />
+        </Link>
+      </div>
 
       {Object.keys(movDet).length !== 0 && (
         <>
