@@ -20,8 +20,6 @@ const Item = (tileObj: TileProps) => {
   // PENDING: re-do the click on picture functionalitiy
   // now in "handleClick"
 
-  console.log(tileObj)
-
   const { bookmarks, setBookmarks } = useContext(EntAppContext)
 
   const router = useRouter()

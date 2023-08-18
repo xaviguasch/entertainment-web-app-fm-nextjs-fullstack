@@ -1,4 +1,4 @@
-import { MovieProps, TVShowProps, MovieDetailProps } from '../types/Types.types'
+import { MovieProps, TVShowProps, SearchTitleProps } from '../types/Types.types'
 
 const BASE_URL = 'https://api.themoviedb.org/3'
 const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p'
@@ -53,7 +53,7 @@ export async function getMovieDetails(id) {
       (person) => person.job.toLowerCase() === 'director'
     )
 
-    const movieInfo: MovieDetailProps = {
+    const movieInfo = {
       id: id,
       title: movieDetails.title,
       tagline: movieDetails.tagline,
@@ -80,7 +80,7 @@ export async function searchData(type: string, query: string) {
   )
 
   const titles = await res.json()
-  const titlesArr: MovieProps[] = titles.results
+  const titlesArr: SearchTitleProps[] = titles.results
 
   console.log(titlesArr)
   return titlesArr

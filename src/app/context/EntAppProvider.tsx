@@ -21,12 +21,9 @@ function EntAppProvider({ children }) {
     // concurrent API calls, but it's not clear it's working.
     // PENDING REVISION!
 
-    const controller = new AbortController()
-
     const fetchData = async (type = 'multi') => {
       try {
-        console.log('inside')
-        const data = await searchData(type, searchQuery, controller.signal)
+        const data = await searchData(type, searchQuery)
 
         console.log(data)
 
@@ -38,8 +35,6 @@ function EntAppProvider({ children }) {
 
     if (tab === 'bookmarks') {
       console.log('inside bookmarks!')
-
-      setSearchedData([])
 
       if (searchQuery.length >= 3) {
         const bookmarkSearchResults = bookmarks.filter((bm) => {
@@ -53,8 +48,6 @@ function EntAppProvider({ children }) {
     }
 
     if (tab === 'movies') {
-      setSearchedData([])
-
       console.log('searching only movies')
 
       fetchData('movie')
@@ -63,8 +56,6 @@ function EntAppProvider({ children }) {
     }
 
     if (tab === 'tv-series') {
-      setSearchedData([])
-
       console.log('searching only tv series')
 
       fetchData('tv')
