@@ -1,12 +1,3 @@
-export type TileProps = {
-  year: number
-  category: 'movie' | 'tv'
-  rating: number
-  title: string
-  image?: string
-  id: number
-}
-
 export type MovieProps = {
   id: number
   title: string
@@ -58,4 +49,13 @@ export type SearchTitleProps = {
   poster_path?: string
   release_date?: string
   first_air_date?: string
+}
+
+export type TileProps = {
+  category: 'movie' | 'tv' | 'N/A'
+  rating: number | string
+  title: string | undefined
+  image?: string
+  id: number
+  year: number | string
 }

@@ -74,8 +74,6 @@ function EntAppProvider({ children }) {
     fetchData()
 
     console.log(searchedData)
-
-    return () => controller.abort()
   }, [searchQuery])
 
   let entAppState = {

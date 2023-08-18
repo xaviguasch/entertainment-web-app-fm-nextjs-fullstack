@@ -82,6 +82,5 @@ export async function searchData(type: string, query: string) {
   const titles = await res.json()
   const titlesArr: SearchTitleProps[] = titles.results
 
-  console.log(titlesArr)
   return titlesArr
 }
