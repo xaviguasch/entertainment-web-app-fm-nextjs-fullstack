@@ -9,6 +9,9 @@ import Search from '../components/Search'
 
 import { getItemData } from '../hooks/tmdb'
 
+import MainContainer from '../components/MainContainer'
+import BookmarkedItems from '../components/BookmarkedItems'
+
 import classes from './page.module.css'
 
 const Bookmarks = () => {
