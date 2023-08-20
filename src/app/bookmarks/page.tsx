@@ -27,7 +27,10 @@ const Bookmarks = () => {
 
   return (
     <div className={classes.Bookmarks}>
-      {searchedData.length === 0 ? (
+      <MainContainer>
+        <BookmarkedItems bookmarks={bookmarks} />
+      </MainContainer>
+      {/* {searchedData.length === 0 ? (
         <>
           <Search />
           <div className={classes.group}>
@@ -68,7 +71,7 @@ const Bookmarks = () => {
           <Search />
           <SearchResults items={searchedData} searchQuery={searchQuery} />
         </>
-      )}
+      )} */}
     </div>
   )
 }
