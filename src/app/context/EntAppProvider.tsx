@@ -42,6 +42,8 @@ function EntAppProvider({ children }) {
         })
 
         setSearchedData(bookmarkSearchResults)
+      } else {
+        setSearchedData([])
       }
 
       return
