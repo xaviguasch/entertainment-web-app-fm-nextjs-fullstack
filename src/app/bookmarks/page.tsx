@@ -28,7 +28,7 @@ const Bookmarks = () => {
   return (
     <div className={classes.Bookmarks}>
       <MainContainer>
-        <BookmarkedItems bookmarks={bookmarks} />
+        <BookmarkedItems />
       </MainContainer>
       {/* {searchedData.length === 0 ? (
         <>

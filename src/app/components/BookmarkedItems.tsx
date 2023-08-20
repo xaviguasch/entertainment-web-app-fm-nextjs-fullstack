@@ -1,9 +1,14 @@
-import React from 'react'
+'use client'
+
+import React, { useContext } from 'react'
+
 import classes from './BookmarkedItems.module.css'
 import Item from './Item'
+import { EntAppContext } from '../context/EntAppProvider'
 
-const BookmarkedItems = ({ bookmarks }) => {
-  console.log(bookmarks)
+const BookmarkedItems = () => {
+  const { bookmarks } = useContext(EntAppContext)
+
   return (
     <div className={classes.BookmarkedItems}>
       <div className={classes.group}>
