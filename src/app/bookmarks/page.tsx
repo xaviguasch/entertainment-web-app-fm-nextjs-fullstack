@@ -3,12 +3,6 @@
 import React, { useContext, useEffect } from 'react'
 import { EntAppContext } from '../context/EntAppProvider'
 
-import Item from '../components/Item'
-import SearchResults from '../components/SearchResults'
-import Search from '../components/Search'
-
-import { getItemData } from '../hooks/tmdb'
-
 import MainContainer from '../components/MainContainer'
 import BookmarkedItems from '../components/BookmarkedItems'
 

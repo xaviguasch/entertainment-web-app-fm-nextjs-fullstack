@@ -1,7 +1,6 @@
 import { MovieProps, TVShowProps, SearchTitleProps } from '../types/Types.types'
 
 const BASE_URL = 'https://api.themoviedb.org/3'
-const BASE_IMAGE_URL = 'https://image.tmdb.org/t/p'
 const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
 
 // This doesn't work, don't know why
@@ -81,6 +80,15 @@ export async function searchData(type: string, query: string) {
 
   const titles = await res.json()
   const titlesArr: SearchTitleProps[] = titles.results
+
+  return titlesArr
+}
+
+export async function getTrendingCat(category: string) {
+  const res = await fetch(`${BASE_URL}/trending/${category}/day?api_key=${TMDB_API_KEY}`)
+
+  const titles = await res.json()
+  const titlesArr = titles.results
 
   return titlesArr
 }
