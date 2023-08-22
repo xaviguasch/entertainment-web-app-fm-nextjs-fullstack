@@ -79,7 +79,9 @@ const Item = (tileObj: TileProps) => {
         <span className='info'>{category === 'movie' ? 'Movie' : 'TV Series'}</span>
         <span className={classes.dot}>&#8226;</span>
 
-        <span className='info'>{Math.round(10 * rating) / 10}</span>
+        <span className='info'>
+          {typeof rating === 'number' ? Math.round(10 * rating) / 10 : 'N/A'}
+        </span>
       </div>
       <h3 className='title-tile-item'>{title}</h3>
     </div>

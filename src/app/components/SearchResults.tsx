@@ -9,10 +9,8 @@ interface SRes {
 }
 
 const SearchResults = ({ items, searchQuery }: SRes) => {
-  console.log('items: ')
+  console.log('items: ', items)
   console.log('searchQuery: ', searchQuery)
-
-  console.log(items)
 
   return (
     <div className={classes.SearchResults}>
