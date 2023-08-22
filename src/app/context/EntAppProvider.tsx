@@ -24,12 +24,12 @@ function EntAppProvider({ children }) {
     // Tried implementing abortController to avoid too many
     // concurrent API calls, but it's not clear it's working.
     // PENDING REVISION!
+    console.log('test')
 
     const fetchData = async (type = 'multi') => {
       try {
         if (searchQuery.length >= 3) {
-          const data: SearchTitleProps[] = await searchData(type, searchQuery)
-          console.log(data)
+          const data: SearchTitleProps[] | undefined = await searchData(type, searchQuery)
 
           setSearchedData(data)
         }
@@ -74,6 +74,7 @@ function EntAppProvider({ children }) {
       // You don't make API calls when the search input has
       // less than 3 characters, and you also erase the results
       // whenever the input is blank again
+      console.log('hola')
       setSearchedData([])
       return
     }
@@ -82,6 +83,12 @@ function EntAppProvider({ children }) {
 
     console.log(searchedData)
   }, [searchQuery])
+
+  useEffect(() => {
+    console.log('change tab alert!!!!!')
+    // This resets the searched results whenever the tab changes
+    setSearchedData([])
+  }, [tab])
 
   let entAppState = {
     searchQuery,

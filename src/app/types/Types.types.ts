@@ -54,7 +54,7 @@ export type SearchTitleProps = {
 
 export type TileProps = {
   category: 'movie' | 'tv' | 'N/A'
-  rating: number | string
+  rating: number
   title: string | undefined
   image?: string
   id: number
