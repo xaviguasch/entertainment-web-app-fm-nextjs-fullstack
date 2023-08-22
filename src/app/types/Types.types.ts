@@ -25,7 +25,7 @@ export type TVShowProps = {
 
 export type ContentDetailProps = {
   id: string
-  title: string
+  title?: string
   tagline?: string
   vote_average: number
   runtime: number
@@ -49,6 +49,7 @@ export type SearchTitleProps = {
   poster_path?: string
   release_date?: string
   first_air_date?: string
+  media_type: 'movie' | 'tv' | 'N/A'
 }
 
 export type TileProps = {
@@ -58,4 +59,19 @@ export type TileProps = {
   image?: string
   id: number
   year: number | string
+}
+
+export type ContentItemProps = {
+  id: number
+  title?: string
+  name?: string
+  tagline?: string
+  original_language?: string
+  overview: string
+  backdrop_path?: string
+  poster_path?: string
+  release_date?: string
+  first_air_date?: string
+  vote_average: number
+  episode_run_time?: number[]
 }

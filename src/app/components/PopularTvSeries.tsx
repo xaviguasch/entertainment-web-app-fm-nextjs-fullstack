@@ -9,6 +9,8 @@ import Item from './Item'
 export default async function PopularTvSeries() {
   const series: TVShowProps[] = await getShows()
 
+  console.log(series);
+
   return (
     <div className={classes.PopularTvSeries}>
       <h2 className='section-title'>Popular TV Series</h2>

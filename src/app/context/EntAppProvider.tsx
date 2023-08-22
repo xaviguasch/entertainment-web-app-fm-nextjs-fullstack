@@ -9,10 +9,14 @@ export const EntAppContext = createContext()
 
 import { searchData } from '../utils/fetchData'
 
+import { SearchTitleProps } from '../types/Types.types'
+
 function EntAppProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('')
-  const [searchedData, setSearchedData] = useState([])
+  const [searchedData, setSearchedData] = useState<SearchTitleProps[]>([])
   const [bookmarks, setBookmarks] = useState([])
+
+  console.log(searchedData)
 
   const tab = usePathname().substring(1)
 
@@ -23,11 +27,12 @@ function EntAppProvider({ children }) {
 
     const fetchData = async (type = 'multi') => {
       try {
-        const data = await searchData(type, searchQuery)
+        if (searchQuery.length >= 3) {
+          const data: SearchTitleProps[] = await searchData(type, searchQuery)
+          console.log(data)
 
-        console.log(data)
-
-        setSearchedData(data)
+          setSearchedData(data)
+        }
       } catch (err) {
         console.error(err)
       }

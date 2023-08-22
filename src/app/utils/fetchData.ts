@@ -1,4 +1,10 @@
-import { MovieProps, TVShowProps, SearchTitleProps } from '../types/Types.types'
+import {
+  MovieProps,
+  TVShowProps,
+  SearchTitleProps,
+  ContentItemProps,
+  ContentDetailProps,
+} from '../types/Types.types'
 
 const BASE_URL = 'https://api.themoviedb.org/3'
 const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
@@ -13,29 +19,37 @@ const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
 // }
 
 export async function getMovies() {
-  const res = await fetch(
-    `${BASE_URL}/trending/movie/day?language=en-US&api_key=${TMDB_API_KEY}`
-  )
+  try {
+    const res = await fetch(
+      `${BASE_URL}/trending/movie/day?language=en-US&api_key=${TMDB_API_KEY}`
+    )
 
-  const movies = await res.json()
-  const moviesArr: MovieProps[] = movies.results
+    const movies = await res.json()
+    const moviesArr: ContentItemProps[] = movies.results
 
-  console.log(moviesArr)
-  return moviesArr
+    console.log(moviesArr)
+    return moviesArr
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 export async function getShows() {
-  const res = await fetch(
-    `${BASE_URL}/trending/tv/day?language=en-US&api_key=${TMDB_API_KEY}`
-  )
+  try {
+    const res = await fetch(
+      `${BASE_URL}/trending/tv/day?language=en-US&api_key=${TMDB_API_KEY}`
+    )
 
-  const tvShows = await res.json()
-  const showsArr: TVShowProps[] = tvShows.results
+    const tvShows = await res.json()
+    const showsArr: ContentItemProps[] = tvShows.results
 
-  return showsArr
+    return showsArr
+  } catch (error) {
+    console.error(error)
+  }
 }
 
-export async function getMovieDetails(id) {
+export async function getMovieDetails(id: string) {
   try {
     const movieDetailsRes = await fetch(
       `${BASE_URL}/movie/${id}?language=en-US&api_key=${TMDB_API_KEY}`
@@ -49,10 +63,10 @@ export async function getMovieDetails(id) {
     const credits = await creditsRes.json()
 
     const director = credits.crew.find(
-      (person) => person.job.toLowerCase() === 'director'
+      (person: any) => person.job.toLowerCase() === 'director'
     )
 
-    const movieInfo = {
+    const movieInfo: ContentDetailProps = {
       id: id,
       title: movieDetails.title,
       tagline: movieDetails.tagline,
@@ -60,10 +74,12 @@ export async function getMovieDetails(id) {
       runtime: movieDetails.runtime,
       release_date: movieDetails.release_date?.slice(0, 4),
       spoken_languages: movieDetails.original_language,
-      genres: movieDetails.genres.map((genre) => genre.name),
+      genres: movieDetails.genres.map(
+        (genre: { id: string; name: string }) => genre.name
+      ),
       overview: movieDetails.overview,
       poster_path: movieDetails.poster_path,
-      cast: credits.cast.slice(0, 10).map((actor) => actor.name),
+      cast: credits.cast.slice(0, 10).map((actor: any) => actor.name),
       director: director.name,
     }
 
@@ -74,14 +90,18 @@ export async function getMovieDetails(id) {
 }
 
 export async function searchData(type: string, query: string) {
-  const res = await fetch(
-    `${BASE_URL}/search/${type}?query=${query}&include_adult=false&language=en-US&page=1&api_key=${TMDB_API_KEY}`
-  )
+  try {
+    const res = await fetch(
+      `${BASE_URL}/search/${type}?query=${query}&include_adult=false&language=en-US&page=1&api_key=${TMDB_API_KEY}`
+    )
 
-  const titles = await res.json()
-  const titlesArr: SearchTitleProps[] = titles.results
+    const titles = await res.json()
+    const titlesArr: SearchTitleProps[] = titles.results
 
-  return titlesArr
+    return titlesArr
+  } catch (error) {
+    console.error(error)
+  }
 }
 
 export async function getTrendingCat(category: string) {
