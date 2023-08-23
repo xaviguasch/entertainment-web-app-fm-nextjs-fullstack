@@ -1,15 +1,9 @@
-// 'use client'
-
 import React from 'react'
 import classes from './Trending.module.css'
 import TrendingItem from './TrendingItem'
 import { getTrendingCat } from '../utils/fetchData'
 
-// import useFetchTrending from '../hooks/useFetchTrending'
-
 const Trending = async () => {
-  // const { data, isLoading } = useFetchTrending('all')
-
   const trendingTitles = await getTrendingCat('all')
 
   console.log('------------')

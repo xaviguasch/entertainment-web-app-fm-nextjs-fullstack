@@ -8,6 +8,8 @@ import MovieCatIcon from './icons/MovieCatIcon'
 import TvCatIcon from './icons/TvCatIcon'
 
 const TrendingItem = ({ data }) => {
+  console.log(data)
+
   const { title, category, year, rating, backgroundImg, id } = data
   const router = useRouter()
 

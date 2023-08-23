@@ -11,10 +11,8 @@ import { getMovies } from '../utils/fetchData'
 export default async function PopularMovies() {
   const movies: MovieProps[] = await getMovies()
 
-  console.log(movies)
-
   // const tab = usePathname().substring(1)
-  let title = ''
+  // let title = ''
 
   // if (tab === '') {
   //   title = 'Popular Movies'

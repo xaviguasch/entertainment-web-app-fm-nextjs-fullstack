@@ -1,7 +1,5 @@
 import {
-  MovieProps,
-  TVShowProps,
-  SearchTitleProps,
+
   ContentItemProps,
   ContentDetailProps,
 } from '../types/Types.types'
@@ -96,7 +94,7 @@ export async function searchData(type: string, query: string) {
     )
 
     const titles = await res.json()
-    const titlesArr: SearchTitleProps[] = titles.results
+    const titlesArr: ContentItemProps[] = titles.results
 
     return titlesArr
   } catch (error) {
@@ -105,10 +103,16 @@ export async function searchData(type: string, query: string) {
 }
 
 export async function getTrendingCat(category: string) {
-  const res = await fetch(`${BASE_URL}/trending/${category}/day?api_key=${TMDB_API_KEY}`)
+  try {
+    const res = await fetch(
+      `${BASE_URL}/trending/${category}/day?api_key=${TMDB_API_KEY}`
+    )
 
-  const titles = await res.json()
-  const titlesArr = titles.results
+    const titles = await res.json()
+    const titlesArr: ContentItemProps[] = titles.results
 
-  return titlesArr
+    return titlesArr
+  } catch (error) {
+    console.error(error)
+  }
 }
