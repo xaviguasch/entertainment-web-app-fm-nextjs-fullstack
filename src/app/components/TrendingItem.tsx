@@ -7,24 +7,25 @@ import classes from './TrendingItem.module.css'
 import MovieCatIcon from './icons/MovieCatIcon'
 import TvCatIcon from './icons/TvCatIcon'
 
-const TrendingItem = ({ data }) => {
-  console.log(data)
+import { TileProps } from '../types/Types.types'
 
-  const { title, category, year, rating, backgroundImg, id } = data
+const TrendingItem = (data: TileProps) => {
+  const { title, category, year, rating, image, id } = data
+
   const router = useRouter()
 
   const handleClick = () => {
-    if (category === 'Movie') {
+    if (category === 'movie') {
       router.push(`/movies/${id}`)
     }
 
-    if (category === 'TV Series') {
+    if (category === 'tv') {
       router.push(`/tv-series/${id}`)
     }
   }
 
   const styleBackground = {
-    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.75) 100%), url(${backgroundImg})`,
+    background: `linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%, rgba(0, 0, 0, 0.75) 100%), url(https://image.tmdb.org/t/p/original${image})`,
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
 
@@ -34,11 +35,13 @@ const TrendingItem = ({ data }) => {
   return (
     <div className={classes.TrendingItem} style={styleBackground} onClick={handleClick}>
       <div className={classes.nuggets}>
-        <span className='info'>{year}</span>
+        <span className='info'>
+          {(year && year.slice(0, 4)) || (year && year.slice(0, 4))}
+        </span>
         <span className={classes.dot}>&#8226;</span>
 
-        {category === 'Movie' && <MovieCatIcon />}
-        {category === 'TV Series' && <TvCatIcon />}
+        {category === 'movie' && <MovieCatIcon />}
+        {category === 'tv' && <TvCatIcon />}
 
         <span className='info'>{category}</span>
         <span className={classes.dot}>&#8226;</span>

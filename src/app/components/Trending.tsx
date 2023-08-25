@@ -22,7 +22,17 @@ const Trending = async () => {
 
       <div className={classes.horizontal}>
         {trendingTitles.map((item: ContentItemProps) => {
-          return <TrendingItem key={item.id} data={...item} />
+          return (
+            <TrendingItem
+              key={item.id}
+              title={item.title}
+              category={item.media_type}
+              year={item.release_date || item.first_air_date}
+              rating={item.vote_average}
+              image={item.backdrop_path}
+              id={item.id}
+            />
+          )
         })}
       </div>
     </div>
