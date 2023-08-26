@@ -21,7 +21,6 @@ const TVSeriesInfo = ({ params }) => {
       </button>
       {isLoading && <h2>Loading...</h2>}
 
-      {/* Checks if the fetched data is not an empty object */}
       {Object.keys(data).length !== 0 && (
         <>
           <ItemInfo data={data} />
