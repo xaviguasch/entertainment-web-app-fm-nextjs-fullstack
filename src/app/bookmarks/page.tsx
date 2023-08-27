@@ -24,48 +24,6 @@ const Bookmarks = () => {
       <MainContainer>
         <BookmarkedItems />
       </MainContainer>
-      {/* {searchedData.length === 0 ? (
-        <>
-          <Search />
-          <div className={classes.group}>
-            <h2 className='section-title'>Bookmarked Movies</h2>
-
-            <div className={classes.bookmarkCols}>
-              {bookmarks &&
-                bookmarks.length > 0 &&
-                bookmarks
-                  .filter((item: object) => {
-                    return item.category === 'Movie'
-                  })
-                  .map((item: object) => {
-                    return <Item key={item.id} data={...item} />
-                  })
-                  .slice(0, 12)}
-            </div>
-          </div>
-
-          <div className={classes.group}>
-            <h2 className='section-title'>Bookmarked Series</h2>
-
-            <div className={classes.bookmarkCols}>
-              {bookmarks.length > 0 &&
-                bookmarks
-                  .filter((item: object) => {
-                    return item.category === 'TV Series'
-                  })
-                  .map((item: object) => {
-                    return <Item key={item.id} data={...item} />
-                  })
-                  .slice(0, 12)}
-            </div>
-          </div>
-        </>
-      ) : (
-        <>
-          <Search />
-          <SearchResults items={searchedData} searchQuery={searchQuery} />
-        </>
-      )} */}
     </div>
   )
 }
