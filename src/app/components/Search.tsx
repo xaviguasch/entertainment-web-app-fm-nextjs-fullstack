@@ -24,7 +24,7 @@ const Search = () => {
     placeholderText = 'Search for TV series'
   }
 
-  function searchInputHandler(e) {
+  function searchInputHandler(e: any) {
     // add functionality that changes the searched items
     // depending on the page you're in
 
