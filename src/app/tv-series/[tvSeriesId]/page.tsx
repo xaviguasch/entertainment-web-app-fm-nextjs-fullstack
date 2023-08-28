@@ -1,33 +1,42 @@
-'use client'
-
 import React from 'react'
+
+import Link from 'next/link'
+
 import classes from './page.module.css'
-import useFetchItemData from '@/app/hooks/useFetchItemData'
 import ItemInfo from '@/app/components/ItemInfo'
 
-import { useRouter } from 'next/navigation'
+import { getItemDetails } from '@/app/utils/fetchData'
 
-const TVSeriesInfo = ({ params }) => {
+import { ContentDetailProps } from '@/app/types/Types.types'
+
+import ArrowLeftIcon from '@/app/components/icons/ArrowLeft'
+
+interface TVSeriesInfoProps {
+  params: { seriesId: string }
+}
+
+export default async function TVSeriesInfo({ params }: TVSeriesInfoProps) {
+  console.log(params)
+
   const { tvSeriesId } = params
 
-  const router = useRouter()
+  const tvSeriesDet: ContentDetailProps = await getItemDetails(tvSeriesId, 'tv')
 
-  const { data, isLoading } = useFetchItemData(tvSeriesId, 'tvSeries')
+  console.log(tvSeriesDet)
 
   return (
     <div className={classes.TVSerieInfo}>
-      <button type='button' onClick={() => router.push('/')}>
-        Go Back
-      </button>
-      {isLoading && <h2>Loading...</h2>}
+      <div className={classes.iconLinkContainer}>
+        <Link href='/'>
+          <ArrowLeftIcon />
+        </Link>
+      </div>
 
-      {Object.keys(data).length !== 0 && (
+      {Object.keys(tvSeriesDet).length !== 0 && (
         <>
-          <ItemInfo data={data} />
+          <ItemInfo itemDetails={tvSeriesDet} />
         </>
       )}
     </div>
   )
 }
-
-export default TVSeriesInfo

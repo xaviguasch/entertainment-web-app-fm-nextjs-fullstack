@@ -6,10 +6,10 @@ import Image from 'next/image'
 import { MovieProps, TVShowProps, ContentDetailProps } from '../types/Types.types'
 
 interface MDProps {
-  movieDetails: ContentDetailProps
+  itemDetails: ContentDetailProps
 }
 
-const ItemInfo = ({ movieDetails }: MDProps) => {
+const ItemInfo = ({ itemDetails }: MDProps) => {
   const {
     id,
     title,
@@ -23,7 +23,7 @@ const ItemInfo = ({ movieDetails }: MDProps) => {
     poster_path,
     cast,
     director,
-  } = movieDetails
+  } = itemDetails
 
   return (
     <div className={classes.itemInfo}>

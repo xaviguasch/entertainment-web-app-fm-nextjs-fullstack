@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 import classes from './page.module.css'
 import ItemInfo from '@/app/components/ItemInfo'
-import { getMovieDetails } from '@/app/utils/fetchData'
+import { getItemDetails } from '@/app/utils/fetchData'
 
 import { ContentDetailProps } from '@/app/types/Types.types'
 
@@ -17,7 +17,7 @@ interface MovieInfoProps {
 export default async function MovieInfo({ params }: MovieInfoProps) {
   const { movieId } = params
 
-  const movDet: ContentDetailProps = await getMovieDetails(movieId)
+  const movDet: ContentDetailProps = await getItemDetails(movieId, 'movie')
 
   return (
     <div className={classes.MovieInfo}>
@@ -29,7 +29,7 @@ export default async function MovieInfo({ params }: MovieInfoProps) {
 
       {Object.keys(movDet).length !== 0 && (
         <>
-          <ItemInfo movieDetails={movDet} />
+          <ItemInfo itemDetails={movDet} />
         </>
       )}
     </div>

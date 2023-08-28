@@ -9,7 +9,7 @@ export type ContentDetailProps = {
   genres: string[]
   overview: string
   poster_path: string
-  director: string
+  director?: string
   cast: string[]
 }
 

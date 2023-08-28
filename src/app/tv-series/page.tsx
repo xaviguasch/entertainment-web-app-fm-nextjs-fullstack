@@ -5,7 +5,7 @@ import PopularTvSeries from '../components/PopularTvSeries'
 
 import MainContainer from '../components/MainContainer'
 
-const SeriesPage = ({ params }) => {
+const SeriesPage = ({}) => {
   return (
     <div className={classes.SeriesPage}>
       <MainContainer>
