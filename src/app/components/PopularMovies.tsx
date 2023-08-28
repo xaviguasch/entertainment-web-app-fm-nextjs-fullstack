@@ -14,7 +14,7 @@ export default async function PopularMovies() {
       <h2 className='section-title'>Popular Movies</h2>
 
       <div className={classes.popularCols}>
-        {movies.length > 0 &&
+        {movies &&
           movies
             .map((item: ContentItemProps) => {
               return (
