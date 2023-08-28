@@ -6,7 +6,7 @@ import { getTrendingCat } from '../utils/fetchData'
 import { ContentItemProps } from '../types/Types.types'
 
 const Trending = async () => {
-  const trendingTitles: ContentItemProps[] = await getTrendingCat('all')
+  const trendingTitles: ContentItemProps[] | undefined = await getTrendingCat('all')
 
   console.log('------------')
   console.log(trendingTitles)
@@ -25,7 +25,7 @@ const Trending = async () => {
           return (
             <TrendingItem
               key={item.id}
-              title={item.title}
+              title={item.title || item.name}
               category={item.media_type}
               year={item.release_date || item.first_air_date}
               rating={item.vote_average}

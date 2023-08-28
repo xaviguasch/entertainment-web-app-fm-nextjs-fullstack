@@ -25,7 +25,7 @@ const Item = (tileObj: TileProps) => {
   const router = useRouter()
 
   const { title, image, year, rating, category, id } = tileObj
-  console.log(tileObj)
+  // console.log(tileObj)
 
   const isBookmarked = bookmarks.some((bm: TileProps) => bm.id === id)
 
@@ -42,7 +42,7 @@ const Item = (tileObj: TileProps) => {
   // refactor function so it adds the whole object instead
   // of just the ID
 
-  const handleBookmark = (e: any) => {
+  const handleBookmark = (e: React.MouseEvent) => {
     e.stopPropagation()
 
     if (isBookmarked) {

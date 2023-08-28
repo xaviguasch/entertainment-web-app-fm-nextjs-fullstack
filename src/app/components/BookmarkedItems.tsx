@@ -8,8 +8,14 @@ import { EntAppContext } from '../context/EntAppProvider'
 
 import { TileProps, ContentItemProps } from '../types/Types.types'
 
+type BookmarkedItemsProps = {
+  bookmarks: TileProps[]
+}
+
 const BookmarkedItems = () => {
-  const { bookmarks } = useContext(EntAppContext)
+  const { bookmarks }: BookmarkedItemsProps = useContext(EntAppContext)
+
+  console.log(bookmarks)
 
   return (
     <div className={classes.BookmarkedItems}>
@@ -23,7 +29,7 @@ const BookmarkedItems = () => {
               .filter((item: TileProps) => {
                 return item.category === 'movie'
               })
-              .map((item: any) => {
+              .map((item: TileProps) => {
                 return (
                   <Item
                     key={item.id}
@@ -46,10 +52,10 @@ const BookmarkedItems = () => {
         <div className={classes.bookmarkCols}>
           {bookmarks.length > 0 &&
             bookmarks
-              .filter((item: any) => {
+              .filter((item: TileProps) => {
                 return item.category === 'tv'
               })
-              .map((item: any) => {
+              .map((item: TileProps) => {
                 return (
                   <Item
                     key={item.id}
