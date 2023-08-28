@@ -9,11 +9,12 @@ import { EntAppContext } from '../context/EntAppProvider'
 import { TileProps, ContentItemProps } from '../types/Types.types'
 
 const BookmarkedItems = () => {
-  const { bookmarks } = useContext(EntAppContext)
+  // const { bookmarks } = useContext(EntAppContext)
 
   return (
     <div className={classes.BookmarkedItems}>
-      <div className={classes.group}>
+      Bookmarks provisional
+      {/* <div className={classes.group}>
         <h2 className='section-title'>Bookmarked Movies</h2>
 
         <div className={classes.bookmarkCols}>
@@ -64,7 +65,7 @@ const BookmarkedItems = () => {
               })
               .slice(0, 12)}
         </div>
-      </div>
+      </div> */}
     </div>
   )
 }
