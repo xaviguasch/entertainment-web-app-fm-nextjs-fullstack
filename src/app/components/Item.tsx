@@ -14,7 +14,7 @@ import TvCatIcon from './icons/TvCatIcon'
 import BookmarkIcon from './icons/BookmarkIcon'
 import EmptyBookmarkIcon from './icons/EmpytBookmarkIcon'
 
-import { MovieProps, TVShowProps, TileProps } from '../types/Types.types'
+import { TileProps } from '../types/Types.types'
 
 const Item = (tileObj: TileProps) => {
   // PENDING: re-do the click on picture functionalitiy
@@ -27,7 +27,7 @@ const Item = (tileObj: TileProps) => {
   const { title, image, year, rating, category, id } = tileObj
   console.log(tileObj)
 
-  const isBookmarked = bookmarks.some((bm) => bm.id === id)
+  const isBookmarked = bookmarks.some((bm: TileProps) => bm.id === id)
 
   const handleClick = () => {
     if (category === 'movie') {

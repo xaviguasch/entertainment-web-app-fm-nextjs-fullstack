@@ -3,7 +3,7 @@ import classes from './ItemInfo.module.css'
 
 import Image from 'next/image'
 
-import { MovieProps, TVShowProps, ContentDetailProps } from '../types/Types.types'
+import { ContentDetailProps } from '../types/Types.types'
 
 interface MDProps {
   itemDetails: ContentDetailProps

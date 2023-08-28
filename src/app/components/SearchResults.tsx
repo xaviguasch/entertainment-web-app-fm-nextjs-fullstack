@@ -1,10 +1,10 @@
 import classes from './SearchResults.module.css'
 import Item from './Item'
 
-import { SearchTitleProps } from '../types/Types.types'
+import { ContentItemProps } from '../types/Types.types'
 
 interface SRes {
-  items: SearchTitleProps[]
+  items: ContentItemProps[]
   searchQuery: string
 }
 
@@ -20,7 +20,7 @@ const SearchResults = ({ items, searchQuery }: SRes) => {
 
       <div className={classes.resultCols}>
         {items.length > 0 &&
-          items.map((item: SearchTitleProps) => {
+          items.map((item: ContentItemProps) => {
             return (
               <Item
                 key={item.id}

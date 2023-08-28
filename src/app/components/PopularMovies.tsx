@@ -2,12 +2,12 @@ import React from 'react'
 import classes from './PopularMovies.module.css'
 import Item from './Item'
 
-import { MovieProps } from '../types/Types.types'
+import { ContentItemProps } from '../types/Types.types'
 
 import { getMovies } from '../utils/fetchData'
 
 export default async function PopularMovies() {
-  const movies: MovieProps[] = await getMovies()
+  const movies: ContentItemProps[] | undefined = await getMovies()
 
   return (
     <div className={classes.PopularMovies}>
@@ -15,7 +15,7 @@ export default async function PopularMovies() {
 
       <div className={classes.popularCols}>
         {movies
-          .map((item: MovieProps) => {
+          .map((item: ContentItemProps) => {
             return (
               <Item
                 key={item.id}

@@ -1,13 +1,13 @@
 import React from 'react'
 
 import classes from './PopularTvSeries.module.css'
-import { TVShowProps } from '../types/Types.types'
+import { ContentItemProps } from '../types/Types.types'
 import { getShows } from '../utils/fetchData'
 
 import Item from './Item'
 
 export default async function PopularTvSeries() {
-  const series: TVShowProps[] = await getShows()
+  const series: ContentItemProps[] | undefined = await getShows()
 
   return (
     <div className={classes.PopularTvSeries}>
@@ -15,7 +15,7 @@ export default async function PopularTvSeries() {
 
       <div className={classes.popularCols}>
         {series
-          .map((item: TVShowProps) => {
+          .map((item: ContentItemProps) => {
             return (
               <Item
                 key={item.id}

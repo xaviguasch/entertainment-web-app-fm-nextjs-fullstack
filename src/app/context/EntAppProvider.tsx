@@ -1,7 +1,6 @@
 'use client'
 
 import { createContext, useContext, useState, useEffect } from 'react'
-import { getTrendingCat } from '../hooks/tmdb'
 
 import { usePathname } from 'next/navigation'
 
@@ -9,11 +8,11 @@ export const EntAppContext = createContext<any>(null)
 
 import { searchData } from '../utils/fetchData'
 
-import { SearchTitleProps } from '../types/Types.types'
+import { ContentItemProps } from '../types/Types.types'
 
 function EntAppProvider({ children }) {
   const [searchQuery, setSearchQuery] = useState('')
-  const [searchedData, setSearchedData] = useState<SearchTitleProps[]>([])
+  const [searchedData, setSearchedData] = useState<ContentItemProps[]>([])
   const [bookmarks, setBookmarks] = useState([])
 
   console.log(searchedData)
@@ -29,7 +28,7 @@ function EntAppProvider({ children }) {
     const fetchData = async (type = 'multi') => {
       try {
         if (searchQuery.length >= 3) {
-          const data: SearchTitleProps[] | undefined = await searchData(type, searchQuery)
+          const data: ContentItemProps[] | undefined = await searchData(type, searchQuery)
 
           setSearchedData(data)
         }
