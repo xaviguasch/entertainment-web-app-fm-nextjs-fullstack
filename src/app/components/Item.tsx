@@ -25,6 +25,7 @@ const Item = (tileObj: TileProps) => {
   const router = useRouter()
 
   const { title, image, year, rating, category, id } = tileObj
+  console.log(tileObj)
 
   const isBookmarked = bookmarks.some((bm) => bm.id === id)
 

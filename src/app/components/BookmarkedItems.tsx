@@ -56,7 +56,7 @@ const BookmarkedItems = () => {
                     image={item.image || item.backdrop_path}
                     year={+item.year || +item.release_date.split('-')[0]}
                     rating={+item.rating || +item.vote_average}
-                    category='movie'
+                    category='tv'
                   />
                 )
               })
