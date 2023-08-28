@@ -14,7 +14,7 @@ export default async function PopularTvSeries() {
       <h2 className='section-title'>Popular TV Series</h2>
 
       <div className={classes.popularCols}>
-        {series.length > 0 &&
+        {series &&
           series
             .map((item: ContentItemProps) => {
               return (
