@@ -42,7 +42,7 @@ const Item = (tileObj: TileProps) => {
   // refactor function so it adds the whole object instead
   // of just the ID
 
-  const handleBookmark = (e) => {
+  const handleBookmark = (e: any) => {
     e.stopPropagation()
 
     if (isBookmarked) {
