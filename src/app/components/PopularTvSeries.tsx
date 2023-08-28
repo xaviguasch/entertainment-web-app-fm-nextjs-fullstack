@@ -7,13 +7,13 @@ import { getShows } from '../utils/fetchData'
 import Item from './Item'
 
 export default async function PopularTvSeries() {
-  // const series: ContentItemProps[] = await getShows()
+  const series: ContentItemProps[] = await getShows()
 
   return (
     <div className={classes.PopularTvSeries}>
       <h2 className='section-title'>Popular TV Series</h2>
 
-      {/* <div className={classes.popularCols}>
+      <div className={classes.popularCols}>
         {series
           .map((item: ContentItemProps) => {
             return (
@@ -29,7 +29,7 @@ export default async function PopularTvSeries() {
             )
           })
           .slice(0, 12)}
-      </div> */}
+      </div>
     </div>
   )
 }

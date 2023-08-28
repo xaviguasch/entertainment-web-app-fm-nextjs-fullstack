@@ -7,14 +7,14 @@ import { ContentItemProps } from '../types/Types.types'
 import { getMovies } from '../utils/fetchData'
 
 export default async function PopularMovies() {
-  // const movies: ContentItemProps[] = await getMovies()
+  const movies: ContentItemProps[] = await getMovies()
 
   return (
     <div className={classes.PopularMovies}>
       <h2 className='section-title'>Popular Movies</h2>
 
       <div className={classes.popularCols}>
-        {/* {movies
+        {movies
           .map((item: ContentItemProps) => {
             return (
               <Item
@@ -28,7 +28,7 @@ export default async function PopularMovies() {
               />
             )
           })
-          .slice(0, 12)} */}
+          .slice(0, 12)}
       </div>
     </div>
   )
