@@ -6,8 +6,12 @@ import classes from './BookmarkedItems.module.css'
 import Item from './Item'
 import { EntAppContext } from '../context/EntAppProvider'
 
+import { TileProps } from '../types/Types.types'
+
 const BookmarkedItems = () => {
   const { bookmarks } = useContext(EntAppContext)
+
+  console.log(bookmarks)
 
   return (
     <div className={classes.BookmarkedItems}>

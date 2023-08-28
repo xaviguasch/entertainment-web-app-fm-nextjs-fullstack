@@ -5,7 +5,7 @@ import { getTrendingCat } from '../hooks/tmdb'
 
 import { usePathname } from 'next/navigation'
 
-export const EntAppContext = createContext()
+export const EntAppContext = createContext<any>(null)
 
 import { searchData } from '../utils/fetchData'
 
