@@ -7,7 +7,7 @@ import { ContentItemProps } from '../types/Types.types'
 import { getMovies } from '../utils/fetchData'
 
 export default async function PopularMovies() {
-  const movies: ContentItemProps[] | undefined = await getMovies()
+  const movies: ContentItemProps[] = await getMovies()
 
   return (
     <div className={classes.PopularMovies}>
