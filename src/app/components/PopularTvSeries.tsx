@@ -7,7 +7,7 @@ import { getShows } from '../utils/fetchData'
 import Item from './Item'
 
 export default async function PopularTvSeries() {
-  const series: ContentItemProps[] = await getShows()
+  const series: ContentItemProps[] | undefined = await getShows()
 
   return (
     <div className={classes.PopularTvSeries}>

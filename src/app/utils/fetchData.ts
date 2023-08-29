@@ -11,6 +11,7 @@ const TMDB_API_KEY = process.env.NEXT_PUBLIC_TMDB_API_KEY
 //     Authorization: `Bearer ${process.env.NEXT_PUBLIC_TMDB_API_KEY}`,
 //   },
 // }
+// CHECK WHY IT DOESNT
 
 export async function getMovies() {
   try {

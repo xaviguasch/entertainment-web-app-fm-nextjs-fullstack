@@ -35,5 +35,5 @@ export type TileProps = {
   title: string | undefined
   image?: string
   id: number
-  year: number | string | undefined
+  year: number | string
 }

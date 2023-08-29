@@ -8,10 +8,6 @@ import { ContentItemProps } from '../types/Types.types'
 const Trending = async () => {
   const trendingTitles: ContentItemProps[] | undefined = await getTrendingCat('all')
 
-  console.log('------------')
-  console.log(trendingTitles)
-  console.log('------------')
-
   if (!trendingTitles) {
     return null
   }

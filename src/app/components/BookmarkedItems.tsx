@@ -6,7 +6,7 @@ import classes from './BookmarkedItems.module.css'
 import Item from './Item'
 import { EntAppContext } from '../context/EntAppProvider'
 
-import { TileProps, ContentItemProps } from '../types/Types.types'
+import { TileProps } from '../types/Types.types'
 
 type BookmarkedItemsProps = {
   bookmarks: TileProps[]
@@ -35,9 +35,9 @@ const BookmarkedItems = () => {
                     key={item.id}
                     id={item.id}
                     title={item.title}
-                    image={item.image || item.backdrop_path}
-                    year={+item.year || +item.release_date.split('-')[0]}
-                    rating={+item.rating || +item.vote_average}
+                    image={item.image}
+                    year={item.year}
+                    rating={+item.rating}
                     category='movie'
                   />
                 )
@@ -61,9 +61,9 @@ const BookmarkedItems = () => {
                     key={item.id}
                     id={item.id}
                     title={item.title}
-                    image={item.image || item.backdrop_path}
-                    year={+item.year || +item.release_date.split('-')[0]}
-                    rating={+item.rating || +item.vote_average}
+                    image={item.image}
+                    year={+item.year}
+                    rating={+item.rating}
                     category='tv'
                   />
                 )
